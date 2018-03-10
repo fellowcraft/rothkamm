@@ -1,0 +1,185 @@
+Module 6 3 140 20 2 mvclpf24 Mvclpf-3
+ColorP 0 0 3 12 250 200 50 180 180 180
+ColorP 1 3 3 14 250 200 50 180 180 180
+ColorP 2 0 3 15 250 200 50 180 180 180
+FSlider 3 0 -65536 0 -983040 163840 1
+FSlider 3 1 -22577 0 -81920 81920 1
+FSlider 3 2 56343 0 0 163840 1
+FSlider 3 3 6708 0 0 16384 1
+FSlider 3 4 8127 0 0 16384 1
+FSlider 3 5 65610 0 -245760 245760 1
+FSMIDI 3 1 10 0 80
+FSMIDI 3 3 10 0 70
+ConfigDialog 0 1046 158 451 401
+Module 1 4 390 183 0 0
+ColorP 1 1 4 14 250 200 50 180 180 180
+FSlider 4 0 0 0 0 16384 1
+FSlider 4 1 1638 0 1638 14745 1
+FSlider 4 2 0 0 0 16384 1
+FSlider 4 3 0 0 0 102940 1
+FSlider 4 4 0 0 0 163840 1
+FSlider 4 5 0 0 0 163840 1
+ISlider 4 0 1 1
+ISlider 4 1 1 1
+ISlider 4 2 1 1
+ComboBox 4 0 0 1
+ConfigDialog 0 741 93 135 290
+Module 7 5 602 182 0 0
+ColorP 0 0 5 7 250 200 50 180 180 180
+ColorP 1 1 5 7 250 200 50 180 180 180
+FSlider 5 0 2697 0 0 16384 1
+FSlider 5 1 8192 0 0 16384 1
+FSlider 5 2 8192 0 0 16384 1
+ComboBox 5 0 0 1
+ConfigDialog 0 0 0 100 30
+Module 6 7 520 20 0 gverb_1216 gverb
+ColorP 0 0 7 8 250 200 50 180 180 180
+FSlider 7 0 1671502 0 16384 4915200 1
+FSlider 7 1 131784 0 1638 5898240 1
+FSlider 7 2 9263 0 0 16384 1
+FSlider 7 3 139 0 0 16384 1
+FSlider 7 4 0 0 -1146880 0 1
+FSlider 7 5 -107343 0 -1146880 0 1
+FSlider 7 6 -50847 0 -1146880 0 1
+ConfigDialog 0 495 220 610 456
+Module 2 8 400 20 0 0
+ColorP 0 0 8 15 250 200 50 180 180 180
+ColorP 2 0 8 3 250 200 50 180 180 180
+FSlider 8 0 0 0 0 16384 1
+FSlider 8 1 0 0 0 16384 1
+FSlider 8 2 16384 0 0 32768 1
+FSlider 8 3 16384 0 0 32768 1
+FSlider 8 4 16384 0 0 32768 1
+ConfigDialog 0 722 148 200 280
+Module 10 9 0 80 0 0
+FSlider 9 0 0 0 -16384 16384 1
+ISlider 9 0 24 1
+ComboBox 9 0 0 1
+ConfigDialog 0 301 189 200 120
+Module 1 10 500 200 0 0
+ColorP 1 2 10 14 250 200 50 180 180 180
+FSlider 10 0 4128 0 0 16384 1
+FSlider 10 1 8192 0 1638 14745 1
+FSlider 10 2 0 0 0 16384 1
+FSlider 10 3 0 0 0 102940 1
+FSlider 10 4 0 0 0 163840 1
+FSlider 10 5 0 0 0 163840 1
+ISlider 10 0 2 1
+ISlider 10 1 1 1
+ISlider 10 2 1 1
+ComboBox 10 0 0 1
+FSMIDI 10 0 10 0 81
+ConfigDialog 0 322 448 214 290
+Module 1 11 280 200 0 0
+ColorP 1 0 11 14 250 200 50 180 180 180
+ColorP 2 0 11 18 250 200 50 180 180 180
+FSlider 11 0 0 0 0 16384 1
+FSlider 11 1 8000 0 1638 14745 1
+FSlider 11 2 0 0 0 16384 1
+FSlider 11 3 0 0 0 102940 1
+FSlider 11 4 0 0 0 163840 1
+FSlider 11 5 0 0 0 163840 1
+ISlider 11 0 1 1
+ISlider 11 1 1 1
+ISlider 11 2 1 1
+ComboBox 11 0 0 1
+FSMIDI 11 0 10 0 82
+ConfigDialog 1 328 345 214 290
+Module 8 12 660 280 4 0
+ColorP 0 2 12 4 250 200 50 180 180 180
+ColorP 1 2 12 10 250 200 50 180 180 180
+ColorP 2 2 12 11 250 200 50 180 180 180
+FSlider 12 0 6407 0 0 32768 1
+FSlider 12 1 32768 0 0 32768 1
+FSlider 12 2 0 0 0 32768 1
+FSlider 12 3 0 0 0 32768 1
+FSlider 12 4 16384 0 0 32768 1
+FSMIDI 12 2 10 0 71
+FSMIDI 12 3 10 0 72
+ConfigDialog 1 797 180 200 280
+Module 42 14 40 323 4 0
+ColorP 0 1 14 9 250 200 50 180 180 180
+FSlider 14 0 -86807 1 -150902 -40582 1
+FSlider 14 1 -75451 1 -75451 0 1
+FSlider 14 2 0 1 -75451 37725 1
+FSlider 14 3 -86807 1 -150902 -40582 1
+FSlider 14 4 -75451 1 -75451 0 1
+FSlider 14 5 17999 1 -75451 37725 1
+ComboBox 14 0 0 1
+ComboBox 14 1 1 1
+CheckBox 14 0 0 1
+ConfigDialog 0 0 0 100 30
+Module 11 15 180 500 0 0
+ColorP 0 0 15 9 250 200 50 180 180 180
+ColorP 1 3 15 9 250 200 50 180 180 180
+FSlider 15 0 0 0 0 16384 1
+FSlider 15 1 129 0 0 16384 1
+FSlider 15 2 0 0 0 16384 1
+FSlider 15 3 1161 0 0 16384 1
+FSlider 15 4 8772 0 0 16384 1
+FSlider 15 5 5418 0 0 16384 1
+FSlider 15 6 14918 0 1638 163840 1
+ConfigDialog 0 548 330 214 420
+Module 14 17 360 520 0 0
+FSlider 17 0 81920 0 0 163840 1
+FSlider 17 1 8192 0 0 16384 1
+ConfigDialog 0 0 0 100 30
+Module 41 18 480 480 0 0
+ColorP 0 1 18 17 250 200 50 180 180 180
+FSlider 18 0 -10068 0 -163840 163840 1
+ConfigDialog 0 899 597 200 100
+Tab "Envelope"
+Tab "Filter"
+Frame "Envelope Attack Level" 0
+Frame "Envelope Attack Time" 0
+Frame "Envelope Release Level" 0
+Frame "Envelope Release Time" 0
+Frame "Envelope General Settings" 0
+Frame "Filter" 1
+Parameter "Cutoff" 3 1 -81920 81920 0
+Parameter "Resonance" 3 3 0 16384 0
+Parameter "Filter Envelope Amount" 3 2 0 163840 0
+Parameter "Input gain (dB) " 3 0 -983040 163840 0
+Parameter "Output gain (dB)" 3 5 -245760 245760 0
+Program 0 -35478
+Program 0 1290
+Program 0 56343
+Program 0 -65536
+Program 0 65610
+Program 1 -35478
+Program 1 1290
+Program 1 56343
+Program 1 -65536
+Program 1 65610
+Program 2 -35478
+Program 2 1290
+Program 2 56343
+Program 2 -65536
+Program 2 65610
+Program 3 -61162
+Program 3 12900
+Program 3 56343
+Program 3 -65536
+Program 3 65610
+Program 4 -61162
+Program 4 12900
+Program 4 56343
+Program 4 -65536
+Program 4 65610
+Program 5 -61162
+Program 5 12900
+Program 5 56343
+Program 5 -65536
+Program 5 65610
+Program 6 -81920
+Program 6 0
+Program 6 163840
+Program 6 163840
+Program 6 -81189
+PresetName "Preset 00"
+PresetName "Preset 01"
+PresetName "Preset 02"
+PresetName "Preset 03"
+PresetName "Preset 04"
+PresetName "Preset 05"
+PresetName "Preset 06"
