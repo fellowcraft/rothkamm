@@ -95,9 +95,7 @@ while($row = $tracks_Q->fetch_assoc()) { echo $row['ID']." "; }
 <SCRIPT TYPE="text/javascript" SRC="/js/jplayer.playlist.min.js"></SCRIPT>
 
 
-<?php $cover_image =
-"http://rothkamm.com/pictures/albumcover/"
-.$album_R['Artist']."-".$album_R['Name'].".jpg"; 
+<?php
 
 echo'<SCRIPT TYPE="text/javascript">
 //<![CDATA[
