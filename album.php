@@ -1,7 +1,7 @@
 <?php
 
 //header('Content-Type: text/html; charset=iso-8859');
-header('Content-Type: text/html; charset=utf-8');
+//header('Content-Type: text/html; charset=utf-8');
 date_default_timezone_set('America/Los_Angeles');
 include('dbcon.php');
 $rootpath = '/var/www/html/ROTHKAMM/';
@@ -86,13 +86,13 @@ while($row = $tracks_Q->fetch_assoc()) { echo $row['ID']." "; }
 
 <LINK HREF="css.css" REL="stylesheet" TYPE="text/css">
 
-<LINK TYPE="text/css" HREF="/skin/jplayer.blue.monday.css" REL="stylesheet" />
+<LINK TYPE="text/css" HREF="skin/jplayer.blue.monday.css" REL="stylesheet" />
 
 <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
-<SCRIPT TYPE="text/javascript" SRC="/js/jquery.jplayer.min.js"></SCRIPT>
-<SCRIPT TYPE="text/javascript" SRC="/js/jplayer.playlist.min.js"></SCRIPT>
+<SCRIPT TYPE="text/javascript" SRC="js/jquery.jplayer.min.js"></SCRIPT>
+<SCRIPT TYPE="text/javascript" SRC="js/jplayer.playlist.min.js"></SCRIPT>
 
 
 <?php
@@ -151,8 +151,8 @@ if ($locMP3 == "") { $msg = "[file missing]"; }
 //TrackName = REReplace(tracks.name,"(#chr(10)#|#chr(13)#)"," ","ALL");
 //TrackName = REReplace(TrackName,"'","`","All");
 
-$minutes = round($row['length'] / 60,0);
-$seconds = round($row['length'] % 60,0);
+$minutes = intval($row['length'] / 60);
+$seconds = intval($row['length'] % 60);
 
 echo "{	title:'<b>["
 .$currentrow.
@@ -282,13 +282,11 @@ echo $row["Name"].' opus '.$row["ID"].'<br>';
 </DIV>
 </DIV>
 
-
-
-<!-- Compact Disc 
-<CFIF trim(album.Format) EQ 'Compact Disc'>
-<CENTER><CFIF FileExists('#GetDirectoryFromPath(ExpandPath("*.*"))#pictures\CD\#album.name#.jpg')><IMG SRC="pictures/CD/<cfoutput>#album.name#</cfoutput>.jpg" CLASS="pic" ALIGN="middle"></CENTER></CFIF>
-</CFIF>
--->
+<?php
+//-------------------------- CD -----------------------------------------------
+if( file_exists('/var/www/html/ROTHKAMM/pictures/CD/'.$album_R["Name"].'.jpg')) { 
+echo '<IMG SRC="pictures/CD/'.$album_R["Name"].'.jpg" CLASS="pic" ALIGN="middle">';
+} ?>
 
 <!-- Title  -->
 
@@ -345,7 +343,7 @@ $AlbumIcon = 'pictures/albumcover/small/'
 ?>
 
 
-      <TD BGCOLOR="#EBCD29"> &nbsp</TD>
+<TD BGCOLOR="#EBCD29"> &nbsp</TD>
 </TR>
 <?php if ( trim($album_R["CatalogNo"]) !== '') { ?>   
 <TR>
@@ -363,34 +361,38 @@ $AlbumIcon = 'pictures/albumcover/small/'
 
 
 <TR>
-      <TD ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">Sound Artist:</TD>
-      <TD VALIGN="TOP"><?php echo "<STRONG>".$album_R["Artist"];
-       if (trim($album_R["Other"] != '')) { 
-       echo "<br><i>".$album_R["Other"]."<br></i>"; 
-       } ?></TD>
+<TD ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">Sound Artist:</TD>
+<TD VALIGN="TOP"><?php echo "<STRONG>".$album_R["Artist"];
+if (trim($album_R["Other"] != '')) { 
+echo "<br><i>".$album_R["Other"]."<br></i>"; 
+} ?></TD>
 </TR>
 <?php if($album_R["VisualArt"] != '') { ?>
 <TR>
-   <TD ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">Visual Artist:</TD>
-   <TD VALIGN="TOP"><?php echo str_replace(",","<br>",$album_R["VisualArt"]) ?></TD>
+<TD ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">Visual Artist:</TD>
+<TD VALIGN="TOP"><?php echo str_replace(",","<br>",$album_R["VisualArt"]) ?></TD>
 </TR>
 <?php } ?>
 
 <TR>
-      <TD ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">Label:</TD>
-      <TD VALIGN="TOP"><?php echo $album_R["Label"]; ?></TD>
+<TD ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">Label:</TD>
+<TD VALIGN="TOP"><?php
+$Label = $album_R["Label"];
+if(strpos($Label,".")) echo '<a href="http://'.$Label.'">';                        ;
+echo $album_R["Label"]; ?></a></TD>
 </TR>
+
 <?php
 if ($TT_R["seconds"] >= 3600) {
 
-$TimeLength =  round($TT_R["seconds"]/60/60%60,0) .":".
-sprintf("%02d",round($TT_R["seconds"]/60%60,0)).":".
-sprintf("%02d",round($TT_R["seconds"]%60   ,0)); 
+$TimeLength =  intval($TT_R["seconds"]/60/60%60,0) .":".
+sprintf("%02d",intval($TT_R["seconds"]/60%60,0)).":".
+sprintf("%02d",intval($TT_R["seconds"]%60   ,0)); 
 
 } else {
 
-$TimeLength =  round($TT_R["seconds"]/60%60,0).":". 
-sprintf("%02d",round($TT_R["seconds"]%60,0));
+$TimeLength =  intval($TT_R["seconds"]/60%60,0).":". 
+sprintf("%02d",intval($TT_R["seconds"]%60,0));
 
 }
 ?>
@@ -463,34 +465,46 @@ if($album_R["FileUnder"] != '') { ?>
     <TD VALIGN="TOP" ><?php echo $album_R["FileUnder"]; ?></TD>
   </TR>
 <?php } ?>
-<TR>
-<TD  ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">PDF:</STRONG> </TD>
-<TD VALIGN="TOP"><?php 
+
+<?php 
+// -------------------------- PDF ---------------------------------------------
 $dirname = $rootpath."pdf";
 $dir     = new DirectoryIterator($dirname);
-foreach ($dir as $fileinfo) {
-if (!$fileinfo->isDot() && strpos($fileinfo->getFilename(),$album_R["Name"])) {
-       
-echo 
-'<A HREF="pdf/'.$fileinfo->getFilename().'"><IMG SRC="pictures/pdf-512.png" WIDTH="50"> '
-.$fileinfo->getFilename().'</A><BR> <BR>';
-
+$PDF     = 'false';
+// ----------- test -----------------------------------------------------------
+foreach ($dir as $fileinfo) {        
+if(strpos($fileinfo->getFilename(),$album_R["Name"])) $PDF="true";
+//echo "PDF".$PDF;
 }
+// ----------- PDF in Dir -----------------------------------------------------
+if($PDF !== 'false'){ ?>    
+<TR>
+<TD  ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">PDF:</STRONG> </TD>
+<TD VALIGN="TOP">
+<?php
+foreach ($dir as $fileinfo) {        
+if(strpos($fileinfo->getFilename(),$album_R["Name"])) {       
+echo 
+'<A HREF="pdf/'.$fileinfo->getFilename().
+'"><IMG SRC="pictures/pdf-512.png" WIDTH="50" VALIGN="MIDDLE"> '
+.$fileinfo->getFilename().'</A><BR> <BR>';
+}
+}
+echo '</TD>
+</TR>';
 }
 ?>
-</TD>
-</TR>
-<?php
 
-$MidiFile = "midi/rothkamm-".$album_R["Name"]."-mid";
+<?php
+// ------------------------- MIDI ---------------------------------------------
+$MidiFile = "midi/rothkamm-".trim($album_R["Name"]).".mid";
 
 if(file_exists($rootpath.$MidiFile)) { ?>
 <TR>
-<TD  ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">Midi:</STRONG> </TD>
-<TD VALIGN="TOP"><A HREF='<?PHP echo $MidiFile ?>' TARGET=""><?PHP echo $MidiFile ?></TD>
+<TD  ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">MIDI:</STRONG> </TD>
+<TD VALIGN="TOP"><A HREF='<?PHP echo $MidiFile ?>' TARGET=""><IMG SRC="pictures/midi-512.png" WIDTH="50" VALIGN="MIDDLE" ><?PHP echo $album_R["Name"] ?></TD>
 </TR>
 <?PHP } ?>
-
 
 </TABLE>
 
