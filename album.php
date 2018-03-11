@@ -35,7 +35,7 @@ select * from PART
 where album like '%".trim($general_R['Name'])."%' ORDER BY ".$Att."
 ";
 $tracks_Q  = $mysqli->query($Query);
-$tracks_R  = $tracks_Q->fetch_assoc();
+//$tracks_R  = $tracks_Q->fetch_assoc();
 
 if(mysqli_num_rows($tracks_Q) < 1) exit("*** No tracks_R ***");
 
@@ -334,7 +334,7 @@ echo $linerFile;
 
 
 <!-- infobox -->
-<cfoutput><TABLE WIDTH="75%" ALIGN="CENTER" CELLPADDING="3" CELLSPACING="0" CLASS="style2bTrans"  BGCOLOR="#FFFFFF">
+<TABLE WIDTH="75%" ALIGN="CENTER" CELLPADDING="3" CELLSPACING="0" CLASS="style2bTrans"  BGCOLOR="#FFFFFF">
     
 <TR>
       <TD VALIGN="TOP" BGCOLOR="#EBCD29" CLASS="styleTiny" width="50%">&nbsp;</TD>
@@ -347,16 +347,16 @@ $AlbumIcon = 'pictures/albumcover/small/'
 
       <TD BGCOLOR="#EBCD29"> &nbsp</TD>
 </TR>
-<?php if ( trim($album_R["CatalogNo"]) != '') { ?>   
+<?php if ( trim($album_R["CatalogNo"]) !== '') { ?>   
 <TR>
       <TD ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">Catalog No:</TD>
-      <TD VALIGN="TOP"><?php echo $album_R["CatalogNo"].".".$album_R["AlbumID"]; ?></TD>
+      <TD VALIGN="TOP"><?php echo trim($album_R["CatalogNo"]).".".$album_R["AlbumID"]; ?></TD>
 </TR>
 <?php } ?>
 <TR>
  <TD ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny"  >Title:</TD>
  <TD VALIGN="TOP"  ><?php echo "<STRONG>".$album_R["Name"]."</STRONG>";
-  if (trim($album_R["NameExt"]) != '') { 
+  if (trim($album_R["NameExt"]) !== '') { 
   echo "<br><i>(".$album_R["NameExt"].")</i>"; 
   } ?></TD>
 </TR>
@@ -462,19 +462,27 @@ if($album_R["FileUnder"] != '') { ?>
     <TD ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny" >File Under:</TD>
     <TD VALIGN="TOP" ><?php echo $album_R["FileUnder"]; ?></TD>
   </TR>
-<?php }
-
-$ScoreFile = "pdf/rothkamm-".$general_R["Name"]."-score.pdf";
-
-if(file_exists($rootpath.$ScoreFile)) { ?>
-<CFIF FileExists('#GetDirectoryFromPath(ExpandPath("*.*"))#pdf\rothkamm-#trim(general.Name)#-score.pdf')>
+<?php } ?>
 <TR>
-<TD  ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">Score:</STRONG> </TD>
-<TD VALIGN="TOP"><CFOUTPUT><A HREF='<?php echo $ScoreFile; ?>' TARGET=""><?PHP echo $ScoreFile; ?></A></TD>
-</TR>
-<?php }
+<TD  ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">PDF:</STRONG> </TD>
+<TD VALIGN="TOP"><?php 
+$dirname = $rootpath."pdf";
+$dir     = new DirectoryIterator($dirname);
+foreach ($dir as $fileinfo) {
+if (!$fileinfo->isDot() && strpos($fileinfo->getFilename(),$album_R["Name"])) {
+       
+echo 
+'<A HREF="pdf/'.$fileinfo->getFilename().'"><IMG SRC="pictures/pdf-512.png" WIDTH="50"> '
+.$fileinfo->getFilename().'</A><BR> <BR>';
 
-$MidiFile = "midi/rothkamm-".$general_R["Name"]."-mid";
+}
+}
+?>
+</TD>
+</TR>
+<?php
+
+$MidiFile = "midi/rothkamm-".$album_R["Name"]."-mid";
 
 if(file_exists($rootpath.$MidiFile)) { ?>
 <TR>
