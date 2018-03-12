@@ -1,5 +1,6 @@
 # rothkamm
 
+
 LAMP (Linux Apache MySQL PHP) stack artwork media server: MP3 JPEG PDF TXT HTML
 
 This (rothkamm cloud) artwork media server is device agnostic and scales from large projections to smart phones. 
@@ -14,4 +15,6 @@ This in itself is steeped in the history of the “server” paradigm of the ear
 
 The artwork is then the unity of its media: Sound (MP3), Image (JPEG) & Text (PDF, TXT, HMTL). 
 
-http://ROTHKAMM.COM
+http://rothkamm.com 
+http://fluxrecord.com
+http://supermodern.com
