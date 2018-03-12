@@ -1,12 +1,10 @@
 <?php
 
-//header('Content-Type: text/html; charset=iso-8859');
-//header('Content-Type: text/html; charset=utf-8');
 date_default_timezone_set('America/Los_Angeles');
 include('dbcon.php');
 $rootpath = '/var/www/html/ROTHKAMM/';
 
-
+// --------------------------- Database ---------------------------------------
 $Query = "
 select * from Album
 where Name COLLATE UTF8_GENERAL_CI like '".URLdecode(trim($_SERVER['QUERY_STRING']))."' 
@@ -44,7 +42,6 @@ remain, the first while() use would start with record No 2. In order to
 save a mysqli_data_seek($tracks_Q,0); statement that resets the pointer,
 the above statement is omited.
 */
-
 if(mysqli_num_rows($tracks_Q) < 1) exit("*** No tracks_R ***");
 
 
@@ -55,7 +52,8 @@ where album like '".trim($general_R['Name'])."'
 $tracklocations_Q = $mysqli->query($Query);
 $tracklocations_R = $tracklocations_Q->fetch_assoc();
 
-function reset_tracklocations() {
+function reset_tracklocations() 
+{
 global $tracklocations_Q;
 mysqli_data_seek($tracklocations_Q,0);
 }
@@ -83,7 +81,6 @@ $mysqli->close();
 
 <HTML>
 <HEAD>
-<?php include("favicon.php") ?>
 
 <TITLE><?php echo $album_R['Name']." (".$album_R['Composed'].") "
 .$album_R['NameExt']." ".$album_R['CatalogNo']
@@ -95,8 +92,7 @@ while($row = $tracks_Q->fetch_assoc()) echo $row['ID']." ";
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<LINK HREF="css.css" REL="stylesheet" TYPE="text/css">
-
+<LINK HREF="css.css"  REL="stylesheet" TYPE="text/css">
 <LINK TYPE="text/css" HREF="skin/jplayer.blue.monday.css" REL="stylesheet" />
 
 <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
@@ -201,14 +197,12 @@ $("#jplayer_inspector_1").jPlayerInspector({jPlayer:$("#jquery_jplayer_1")});
 
 </SCRIPT>
 ';
-
-
-include('favicon.php');
-
-
 ?> 
-<meta property="fb:app_id" content="367367553687587">
 
+
+<?php include("favicon.php") ?>
+
+<meta property="fb:app_id" content="367367553687587">
 <meta property='og:title' content='<?php echo $album_R["Name"]." ".$album_R["Composed"]." ".$album_R["NameExt"]; ?> '> 
 <meta property="og:type" content="music.album">
 <meta property="og:site_name" content="ROTHKAMM">
@@ -243,29 +237,16 @@ var ImageSize = 'HEIGHT="' + window.innerHeight
 } else { 
 var ImageSize  = 'WIDTH="' + window.innerWidth 
 }
-</script>
 
-<?php 
-$ImageHTML = '<CENTER><IMG  CLASS="picBig" SRC="'.$cover_image.'" BORDER="0" title="'.$album_R["Name"].' - '.$album_R["Artist"].' (sound artist) - '.$album_R["VisualArt"].' (visual artist)"></CENTER>';
-
-$ImageLeft  = '<CENTER><IMG SRC="'.$cover_image.'" BORDER=0 WIDTH="';
-$ImageRight = '"></CENTER>';
-
-?>
-
-<script> 
-//let d = new Date();
-//document.body.innerHTML = "<h1>Today's date is " + d + "</h1>"
 document.write('<CENTER><IMG SRC="<?php echo $cover_image ?>" BORDER=0 ' + ImageSize + '"></CENTER>' ) 
 </script> 
 
 <!-- jplayer instance -->
 <DIV ID="jquery_jplayer_1" CLASS="jp-jplayer"></DIV>
-<!--<A NAME="contentPlayer"> </A> -->
-<DIV  align="center" CLASS="style2c"  >
+<DIV  align="center" CLASS="style2c" >
 <DIV ID="jp_container_1" CLASS="jp-audio" ALIGN="CENTER" >
 <DIV CLASS="jp-type-playlist" >
- <DIV CLASS="jp-gui jp-interface" >
+<DIV CLASS="jp-gui jp-interface" >
 
 <UL CLASS="jp-controls" >
 <LI><A HREF="javascript:;" CLASS="jp-play" TABINDEX="1" >play</A></LI>
@@ -280,7 +261,7 @@ document.write('<CENTER><IMG SRC="<?php echo $cover_image ?>" BORDER=0 ' + Image
 </DIV>
 
 <DIV CLASS="jp-current-time"></DIV>
- </DIV>
+</DIV>
 
 <DIV CLASS="jp-playlist"  >
 <UL><LI></LI></UL>
@@ -290,29 +271,33 @@ document.write('<CENTER><IMG SRC="<?php echo $cover_image ?>" BORDER=0 ' + Image
 <?php
 mysqli_data_seek($tracks_Q,0);
 
-while($row = $tracks_Q->fetch_assoc()) { 
-
+while($row = $tracks_Q->fetch_assoc()) 
+{ 
 echo $row["Name"].' opus '.$row["ID"].'<br>';
-
-}
+} 
 ?>
 </DIV>
 </DIV>
 </DIV>
 
+
 <?php
 //-------------------------- CD -----------------------------------------------
-if( file_exists('/var/www/html/ROTHKAMM/pictures/CD/'.$album_R["Name"].'.jpg')) { 
+if( file_exists('/var/www/html/ROTHKAMM/pictures/CD/'.$album_R["Name"].'.jpg')) 
+{ 
 echo '<IMG SRC="pictures/CD/'.$album_R["Name"].'.jpg" CLASS="pic" ALIGN="middle">';
-} ?>
+} 
+?>
+
 
 <!-- Title  -->
 
-<DIV ALIGN="center" VALIGN="middle" CLASS="style2cfade" ><BR><BR><STRONG><?php echo $album_R["Artist"]." [ ".$album_R["Name"]; ?> ]</STRONG><BR><BR></DIV>
+<DIV ALIGN="center" VALIGN="middle" CLASS="style2cc" ><BR><BR><STRONG><?php echo $album_R["Artist"]." [ ".$album_R["Name"]; ?> ]</STRONG><BR><BR></DIV>
 
 
 <?php
-if( file_exists('/var/www/html/ROTHKAMM/linernotes/'.trim($general_R["Name"]).'.htm')) { 
+if( file_exists('/var/www/html/ROTHKAMM/linernotes/'.trim($general_R["Name"]).'.htm')) 
+{ 
 echo '<TABLE WIDTH="75%" ALIGN="CENTER">
 <TR>
 <TD  CLASS="style3r" ALIGN="justify">'; 
@@ -323,11 +308,12 @@ echo '</TD>
 }
 ?>
 
+
 <?php
 $linerFile = 'linernotes/'.trim($general_R["AlbumID"]).'.htm';
 
-if( file_exists($rootpath.$linerFile)) { 
-
+if( file_exists($rootpath.$linerFile))
+{ 
 ?>
 <TABLE WIDTH="75%" ALIGN="CENTER">
 <TR>
@@ -350,7 +336,12 @@ echo $linerFile;
 
 
 <!-- _____________________________INFOBOX___________________________________ -->
-<TABLE WIDTH="75%" ALIGN="CENTER" CELLPADDING="3" CELLSPACING="0" CLASS="style2bTrans"  BGCOLOR="#FFFFFF">
+<TABLE WIDTH="75%" 
+       ALIGN="CENTER" 
+       CELLPADDING="3" 
+       CELLSPACING="0" 
+       CLASS="style2bTrans"  
+       BGCOLOR="#FFFFFF">
 
 <?php 
 $AlbumIcon = 'pictures/albumcover/small/'
@@ -365,13 +356,15 @@ $AlbumIcon = 'pictures/albumcover/small/'
 
 
 <?php if ( trim($album_R["CatalogNo"]) !== '') 
-{ ?>   
+{ 
+?>   
 <TR>
 <TD ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">Catalog No:</TD>
 <TD VALIGN="TOP"><?php echo trim($album_R["CatalogNo"]).".".$album_R["AlbumID"]; ?></TD>
 </TR>
 <?php 
-} ?>
+} 
+?>
 
 
 <TR>
@@ -393,13 +386,15 @@ echo "<br><i>".$album_R["Other"]."<br></i>";
 
 
 <?php if($album_R["VisualArt"] != '')
-{ ?>
+{ 
+?>
 <TR>
 <TD ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">Visual Artist:</TD>
 <TD VALIGN="TOP"><?php echo str_replace(",","<br>",$album_R["VisualArt"]) ?></TD>
 </TR>
 <?php 
-} ?>
+} 
+?>
 
 
 <TR>
@@ -434,13 +429,15 @@ sprintf("%02d",intval($TT_R["seconds"]%60,0));
 
 
 <?php if (trim($album_R["Composed"] != '')) 
-{ ?>
+{ 
+?>
 <TR>
 <TD ALIGN="RIGHT" VALIGN="TOP" nowrap CLASS="styleTiny"  >Composed:</TD>
 <TD VALIGN="TOP"  ><?PHP echo $album_R["Composed"]; ?></TD>
 </TR>
 <?php 
-} ?>
+}
+?>
 
 
 <TR>
@@ -471,24 +468,28 @@ echo $value."<br>";
 ?></TD>
 </TR>
 <?PHP 
-} ?>
+}
+?>
 
 
 <TR>
 <TD ALIGN="RIGHT" VALIGN="TOP" nowrap CLASS="styleTiny"  >Release Date:</TD>
 <TD VALIGN="TOP"  ><?php
-echo date_format(date_create($album_R["Released"]),"m/d/Y"); ?></TD>
+echo date_format(date_create($album_R["Released"]),"m/d/Y"); 
+?></TD>
 </TR>
 
 
 <?PHP if($album_R["Edition"] != "") 
-{ ?> 
+{
+?> 
 <TR>
     <TD ALIGN="RIGHT" VALIGN="TOP" nowrap CLASS="styleTiny"  >Edition Size:</TD>
     <TD VALIGN="TOP"  ><?php echo $album_R["Edition"]; ?></TD>
 </TR>
 <?PHP 
-} ?>
+}
+?>
 
 
 <TR>
@@ -498,13 +499,15 @@ echo date_format(date_create($album_R["Released"]),"m/d/Y"); ?></TD>
 
 
 <?php if($album_R["Parts"] != '') 
-{ ?>
+{
+?>
 <TR>
 <TD ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">Parts:</TD>
 <TD VALIGN="TOP"><?php echo str_replace(",","<br>",$album_R["Parts"]); ?></TD>
  </TR>
 <?PHP 
-} ?>
+}
+?>
 
 
 <?php if($album_R["UPC"] != '') 
@@ -519,13 +522,15 @@ echo date_format(date_create($album_R["Released"]),"m/d/Y"); ?></TD>
 
 
 if($album_R["FileUnder"] != '') 
-{ ?>
+{
+?>
 <TR>
 <TD ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny" >File Under:</TD>
 <TD VALIGN="TOP" ><?php echo $album_R["FileUnder"]; ?></TD>
 </TR>
 <?php 
-} ?>
+}
+?>
 
 
 <?php 
@@ -540,7 +545,8 @@ if(strpos($fileinfo->getFilename(),$album_R["Name"])) $PDF="true";
 }
 // ----------- PDF in Dir -----------------------------------------------------
 if($PDF !== 'false')
-{ ?>    
+{
+?>    
 <TR>
 <TD  ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">PDF:</TD>
 <TD VALIGN="TOP">
@@ -551,14 +557,15 @@ if(strpos($fileinfo->getFilename(),$album_R["Name"]))
 {       
 echo 
 '<A HREF="pdf/'.$fileinfo->getFilename().
-'"><IMG SRC="pictures/pdf-512.png" WIDTH="50" VALIGN="MIDDLE"> '
+'" TARGET="" ><IMG SRC="pictures/pdf-512.png" WIDTH="50" VALIGN="MIDDLE"> '
 .$fileinfo->getFilename().'</A><BR> <BR>';
 }
 }
 echo
 '</TD>
 </TR>';
-} ?>
+}
+?>
 
 
 <?php
@@ -566,13 +573,19 @@ echo
 $MidiFile = "midi/rothkamm-".trim($album_R["Name"]).".mid";
 
 if(file_exists($rootpath.$MidiFile)) 
-{ ?>
+{ 
+?>
 <TR>
 <TD  ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">MIDI:</STRONG> </TD>
-<TD VALIGN="TOP"><A HREF='<?PHP echo $MidiFile ?>' TARGET=""><IMG SRC="pictures/midi-512.png" WIDTH="50" VALIGN="MIDDLE" ><?PHP echo $album_R["Name"] ?></TD>
+<TD VALIGN="TOP"><A HREF='<?PHP
+echo $MidiFile
+?>' TARGET=""><IMG SRC="pictures/midi-512.png" WIDTH="50" VALIGN="MIDDLE" ><?PHP 
+echo $album_R["Name"] 
+?></TD>
 </TR>
 <?PHP 
-} ?>
+} 
+?>
 
 </TABLE>
 
