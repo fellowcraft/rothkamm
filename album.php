@@ -301,7 +301,7 @@ if( file_exists('/var/www/html/ROTHKAMM/linernotes/'.trim($general_R["Name"]).'.
 echo '<TABLE WIDTH="75%" ALIGN="CENTER">
 <TR>
 <TD  CLASS="style3r" ALIGN="justify">'; 
-file_get_contents("linernotes/".trim($general_R["Name"]).".htm"); 
+echo file_get_contents("linernotes/".trim($general_R["Name"]).".htm"); 
 echo '</TD>
 </TR>
 </TABLE>';
@@ -318,12 +318,7 @@ if( file_exists($rootpath.$linerFile))
 <TABLE WIDTH="75%" ALIGN="CENTER">
 <TR>
 <TD  CLASS="style3r" ALIGN="justify"><?php 
-//mb_convert_encoding(readfile('linernotes/'.trim($general_R["AlbumID"]).'.htm'),
-//'utf-8','ISO-8859-1'
-//readfile('linernotes/'.trim($general_R["AlbumID"]).'.htm')
-$linerFile  = file_get_contents('linernotes/'.trim($general_R["AlbumID"]).'.htm');
-//$linerFile2 = mb_convert_encoding($linerFile,'ISO-8859-1','utf-8');
-echo $linerFile;
+echo file_get_contents('linernotes/'.trim($general_R["AlbumID"]).'.htm');
 ?></TD>
 </TR>
 </TABLE>

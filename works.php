@@ -64,40 +64,39 @@ $mysqli->close();
 //mysqli_data_seek($tracks_Q,0);
 while($row = $tracks_Q->fetch_assoc()) { 
 
-$MP3s = "/var/www/html/ROTHKAMM/MP3320/";
+$MP3s = "/var/www/html/MP3320/";
 $MP3name = "";
 
-for ($i=0; $i <= 99; $i++) {
-
+for ($i=0; $i <= 99; $i++)
+{
 $MP3file = $MP3s.sprintf("%04d",$row["ID"]).sprintf("%02d",$i).'.mp3';
   
-if(file_exists($MP3file)) { 
-
-$MP3name = 'http://'.$_SERVER["HTTP_HOST"].'/MP3320/'
+if(file_exists($MP3file))
+{ 
+$MP3name = 'http://mp3.rothkamm.com/'
 .sprintf("%04d",$row["ID"]).sprintf("%02d",$i).'.mp3'; 
-
 }
 }
 
-$WorkLength = round($row["length"]/60,0).":".sprintf("%02d",$row["length"]%60);
+$WorkLength = intval($row["length"]/60,0).":".sprintf("%02d",$row["length"]%60);
 
-if ($row["length"] > 3599) {
-$WorkLength = round($row["length"]/3600).":". 
-	sprintf("%02d",($row["length"]%3600)/60).":". 
-	sprintf("%02d", $row["length"]%60);
+if ($row["length"] > 3599)
+{
+$WorkLength = intval($row["length"]/3600).":". 
+sprintf("%02d",($row["length"]%3600)/60).":". 
+sprintf("%02d", $row["length"]%60);
 }
 ?>
 <TR>
 <TD ALIGN="RIGHT" VALIGN="top" CLASS="style2fade" >
-<?php if(trim($row["album"]) != '') {
-
+<?php if(trim($row["album"]) != '') 
+{
 $array = explode(",",$row["album"]);
-foreach($array as $value) {
-
+foreach($array as $value)
+{
 $WebName = str_replace(" ","+",trim($value));
 echo "<A HREF='album.php?".$WebName."'>".$value.
 " <br />"; 
-
 } 
 }
 
