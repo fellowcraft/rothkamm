@@ -34,19 +34,17 @@ $mysqli->close();
 <HEAD>
 <TITLE><?php echo $all_R["Parts"]." works 1982-2018 ROTHKAMM" ?></TITLE>
 
-<meta name="viewport" content="width=800">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <LINK HREF="css.css" REL="stylesheet" TYPE="text/css">
 </HEAD>
 
 <BODY>  
-<div id="margin-left:auto; margin-right:auto;">
 
-<DIV ID="Layer1"><!-- CONTENT -->
-<TABLE WIDTH="800" BORDER="0" ALIGN="center" CELLPADDING="1" CELLSPACING="0"  BGCOLOR="FFFFFF">
-<TR>
- <TD VALIGN="TOP" BGCOLOR="FFFFFF"><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="5" BGCOLOR="FFFFFF">
+<?php include("navbar.php"); ?>
 
+<DIV ID="Layer1">
+<TABLE WIDTH="75%" BORDER="0" ALIGN="center" CELLPADDING="5" CELLSPACING="5"  BGCOLOR="FFFFFF">
 
 <TR>
 <TD COLSPAN="9" HEIGHT="16" VALIGN="middle" BGCOLOR="FFFFFF"  CLASS="style1" ALIGN="CENTER" ><STRONG CLASS="styleTiny"><?php echo $all_R['Parts']." works  - ".round(($A_R['SumTotal']/60)/60,0)." hours ".round($A_R['SumTotal']/60%60,0)." minutes ".sprintf('%02d', $A_R["SumTotal"]%60)." seconds"; ?></STRONG></TD>
@@ -121,14 +119,12 @@ echo '</span>      </TD>
 
 } ?>
 
-<TR>
- <TD COLSPAN="9"><IMG SRC="pictures/shim.gif" WIDTH="10" HEIGHT="5"></TD>
-</TR> 
-</TABLE></TD>
 </TR>
-</TABLE></TD></TR></TABLE>
+</TABLE>
 
 </DIV> 
+
+
 </BODY>
 
 

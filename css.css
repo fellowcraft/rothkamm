@@ -30,6 +30,32 @@ text-decoration:none;}
 	z-index:1;
 }
 
+#navbar {
+ /*   background-color: #333;  Black background color */
+    position: fixed; /* Make it stick/fixed */
+    top: -100px; /* Hide the navbar 50 px outside of the top view */
+    width: 100%; /* Full width */
+    transition: top 0.3s; /* Transition effect when sliding down (and up) */
+	z-index:2;
+}
+
+/* Style the navbar links */
+#navbar a {
+    float: left;
+    display: block;
+    color: #666666;
+    text-align: left;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    font-family:Arial, helvetica, sans-serif; 
+}
+
+#navbar a:hover {
+    background-color: #82231c;
+    color: black;
+}
+
 .pic{width:100%;min-width:28px;max-width:280px;margin:0px;height:auto;display:block;}
 .picBig{width:100%;min-width:30px;max-width:3000px;margin:0px;display:block;}
 .picTable{width:auto;min-width:30px;max-width:840px;margin:0px;height:auto;display:block;}

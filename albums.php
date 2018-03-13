@@ -42,6 +42,8 @@ $mysqli->close();
 
 <BODY >
 
+<?php include("navbar.php"); ?>
+
 <DIV CLASS="Layer1" >
 
 <TABLE  

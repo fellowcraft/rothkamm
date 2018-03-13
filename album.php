@@ -229,6 +229,11 @@ $URLAlbum    = URLencode(trim($album_R["Name"]));
 
 
 <BODY>
+
+
+<?php include("navbar.php"); ?>
+
+
 <!-- Album Cover -->
 
 <script>

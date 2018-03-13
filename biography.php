@@ -55,6 +55,10 @@ $mysqli->close();
 <?php $bio  = file_get_contents('bio.txt'); ?>
 
 <BODY>
+
+
+<?php include("navbar.php"); ?>
+
 <div id="Layer1">
 <TABLE WIDTH="80%" BORDER="0" ALIGN="center" CELLPADDING="8" CELLSPACING="0"  BGCOLOR="FFFFFF">
 

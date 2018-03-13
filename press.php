@@ -65,6 +65,9 @@ $mysqli->close();
 
 </HEAD>
 <BODY>
+
+<?php include("navbar.php"); ?>
+
 <DIV ID="Layer1"><!-- CONTENT -->
 <TABLE WIDTH="75%" BORDER="0" ALIGN="CENTER" CELLPADDING="1" CELLSPACING="0"  BGCOLOR="ffffff">
 
@@ -104,8 +107,8 @@ $PDFlink = "press/FluxRecords[".$row['ID']."].pdf";
 $PDFlink =  $row["ID"];
 }
 ?>
-<TR onMouseOver="this.style.backgroundColor='EBCD29'" onMouseOut='this.style.backgroundColor=""' >
-<TD CLASS="style2cTrans"><A HREF="<?php echo $PDFlink; ?>"><IMG SRC="press/FluxRecords[<?php echo sprintf('%02d',$row['ID']); ?>].pdf.png"></A></TD>          
+<TR >
+<TD CLASS="style2cTrans"><A HREF="<?php echo $PDFlink; ?>"><IMG SRC="press/FluxRecords[<?php echo sprintf('%02d',$row['ID']); ?>].pdf.png" HEIGHT="150" ></A></TD>          
 <TD VALIGN="middle" CLASS="tiny" ALIGN="center"><A HREF="<?php echo $PDFlink.'">'.$row["tagline"].'</A><BR>
   <BR>
   Flux Record PDF No. <EM>'.$row["ID"].'</EM>|'.date_format(date_create($row["DateTime"]),"m/d/Y").'</SPAN></TD>
