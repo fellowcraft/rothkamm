@@ -3,7 +3,13 @@
 date_default_timezone_set('America/Los_Angeles');
 include('dbcon.php');
 $rootpath = '/var/www/html/ROTHKAMM/';
-
+$MP3path = "/var/www/html/MP3320/";
+// ------------------------- dev/live -----------------------------------------
+if($_SERVER["HTTP_HOST"] == "127.0.0.1") 
+$MP3web = "http://127.0.0.1/MP3320/";
+else 
+$MP3web = "http://mp3.rothkamm.com/";
+// ----------------------------------------------------------------------------
 // --------------------------- Database ---------------------------------------
 $Query = "
 select * from Album
@@ -114,17 +120,31 @@ cssSelectorAncestor: "#jp_container_1"
 }, [
 ';
 
-$FirstMP3 = '';
+
+$Version = "-1";
+
+function newestMP3($MP3_ID) 
+{
+Global $MP3web;
+Global $MP3path;
+Global $Version;
+$newestMP3 = "";
+
+for ($i=0; $i <= 99; $i++)
+{
+$MP3file = $MP3path.sprintf("%04d",$MP3_ID).sprintf("%02d",$i).'.mp3';
+  
+if(file_exists($MP3file))
+{ 
+$newestMP3 = $MP3web.sprintf("%04d",$MP3_ID).sprintf("%02d",$i).'.mp3'; 
+$Version = sprintf("%02d",$i);
+}
+}
+return $newestMP3;
+}
+
+
 $currentrow=1;
-
-$MP3s = "/var/www/html/MP3320/";
-
-// ------------------------- dev/live -----------------------------------------
-if($_SERVER["HTTP_HOST"] == "127.0.0.1") 
-$MP3web = "http://127.0.0.1/MP3320/";
-else 
-$MP3web = "http://mp3.rothkamm.com/";
-// ----------------------------------------------------------------------------
 
 mysqli_data_seek($tracks_Q,0);
 
@@ -133,22 +153,8 @@ while($row = $tracks_Q->fetch_assoc())
 $loc = "";
 $newname = "";
 $msg = "";
-$Version = "-1";
 
-for ($i=0; $i <= 99; $i++)
-{
-$MP3file = $MP3s.sprintf("%04d",$row["ID"]).sprintf("%02d",$i).'.mp3';
-  
-if(file_exists($MP3file))
-{ 
-$newname = $MP3web
-.sprintf("%04d",$row["ID"]).sprintf("%02d",$i).'.mp3'; 
-
-$Version = sprintf("%02d",$i);
-}
-}
-
-$locMP3  = $newname; 
+$locMP3  = newestMP3($row['ID']);
 
 if ($locMP3 == "")  $msg = "[file missing]";
 
@@ -173,8 +179,6 @@ echo "{	title:'<b>["
 .$locMP3.
 "',   }, 
 ";
-
-if( $FirstMP3 == '' ) $FirstMP3 = $locMP3;
 
 ++$currentrow;
 }
@@ -278,7 +282,8 @@ mysqli_data_seek($tracks_Q,0);
 
 while($row = $tracks_Q->fetch_assoc()) 
 { 
-echo $row["Name"].' opus '.$row["ID"].'<br>';
+echo '<a href="'.newestMP3($row["ID"]).'">'
+.$row["Name"].' opus '.$row["ID"].'.mp3</a><br>';
 } 
 ?>
 </DIV>
