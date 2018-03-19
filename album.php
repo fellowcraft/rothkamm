@@ -186,6 +186,7 @@ echo "{	title:'<b>["
 
 echo '], {
 playlistOptions: {  autoPlay: false },
+loop: true,
 swfPath: "/js",
 supplied: "mp3",
 volume: "100",
