@@ -1,5 +1,4 @@
-﻿
-<CFSAVECONTENT VARIABLE="bio">Frank Rothkamm (symbol ®) (born July 2, 1965) is a German-American composer, pianist, artist, and polymath who has divided most of his time between New York and Los Angeles.
+﻿Frank Rothkamm (born July 2, 1965) is a composer and polymath who has divided most of his time between New York and Los Angeles.
 
 To date Frank has released <a href=albums.php>FluxCD albums</a>, of which SoloAlbum are solo, and has composed <a href=works.php>allparts works</a> ranging from the microscopic 4 second "ID 7" (opus 13) to the 7 hour and 27 minute macroscape of "Midtown" (opus 596). His 20 releases on Compact Disc, of which 18 were issued by his own Flux Records imprint between 1995 and 2010, were the subject of <a href=press.php>allreviews reviews</a>, mainly in Europe and the US.
 
@@ -26,4 +25,3 @@ On July 2, 2015 his Lodge For Utopian Science started to digitally issue open so
 Although always prolific and despite setbacks, Frank markedly stepped up production in 2015, 2016 and 2017 with the realization of over 200 works and the release - via <a href=https://play.google.com/store/music/artist/Frank_Rothkamm?id=Avxn4ftlroneg4hradcznfcivlu >Google Play</a>, <a href=https://www.youtube.com/user/rothkamm >YouTube</a>, <a href=https://frankrothkamm.bandcamp.com/>Bandcamp</a> and <a href=http://rothkamm.com>Rothkamm</a> - of 23 albums in 2015, 36 albums in 2016 and 62 in 2017.
 
 In 2017, after a year of misdiagnosis by Ronald Reagan Medical Center, Frank nearly died of acute renal failure during a heat wave in LA, was admitted to UCLA’s Santa Monica hospital where he was diagnosed with terminal Cancer. Frank then sold all his possessions, donated his archive to UCSB (The Frank Rothkamm Collection), his CD releases to SONM (Murcia, Spain) and returned, after 30 years abroad, to Germany where he was treated at Cologne’s University Clinic.
-</CFSAVECONTENT>
