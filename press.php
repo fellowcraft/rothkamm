@@ -1,6 +1,6 @@
 <?php
 
-//header('Content-Type: text/html; charset=utf-8');
+header('Content-Type: text/html; charset=latin-1');
 date_default_timezone_set('America/Los_Angeles');
 include('dbcon.php');
 $rootpath = '/var/www/html/ROTHKAMM/';
@@ -85,7 +85,7 @@ $array = explode(",",$row['album']);
 <TR>
 <TD CLASS="style3r" VALIGN="TOP" COLSPAN="2">
 <?php foreach($array as $value) { echo 
-'<a href="http://'.$_SERVER["HTTP_HOST"].'/album.php?'.urlencode($value).'">[+]</A>'.
+'<a href="album.php?'.urlencode($value).'">[+]</A>'.
 '<SPAN CLASS="subT1"> '.$value.'</SPAN> '; 
 }
 
