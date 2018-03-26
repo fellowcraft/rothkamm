@@ -1,6 +1,6 @@
 <?php
 
-header('Content-Type: text/html; charset=iso-8859');
+//header('Content-Type: text/html; charset=iso-8859');
 date_default_timezone_set('America/Los_Angeles');
 
 include('dbcon.php');
@@ -41,11 +41,62 @@ $mysqli->close();
 <LINK HREF="css.css" REL="stylesheet" TYPE="text/css"></HEAD>
 
 <BODY >
+<?php include("navbar.php");
 
-<?php include("navbar.php"); ?>
+if(isset($_GET["text"]))
+{
+?>
+<DIV id="Layer2" >
 
-<DIV CLASS="Layer1" >
+<TABLE  
+WIDTH="75%" 
+BORDER="0" 
+ALIGN="center" 
+CELLPADDING="0" 
+CELLSPACING="30"  
+BGCOLOR="FFFFFF"
+>
 
+<?php $x=0; 
+
+while($row = $FluxCDcomposed->fetch_assoc())
+{
+$x = $x + 1;
+
+if(($x-1) % 3 == 0) echo "<TR>";
+
+$URLAlbum = URLencode($row["Name"]);
+?>
+<TD 
+CLASS='style2cc'
+ALIGN='CENTER' 
+VALIGN='MIDDLE'
+><A HREF='album.php?<?php echo $URLAlbum."'>"
+//. $row["Artist"] . 
+//" "
+. $row["Name"] .
+//" "
+//. $row["NameExt"] . 
+" <br>("
+. $row["Composed"] . 
+")</A></TD>"; 
+
+//if(($x-1) % 3 == 2) 
+echo "</TR>";
+
+}
+
+?>
+</TABLE>
+</DIV>
+
+<?php 
+} 
+else
+{
+?>
+
+<DIV id="Layer1" >
 <TABLE  
         BORDER="0" 
         ALIGN="center" 
@@ -55,6 +106,8 @@ $mysqli->close();
         >
 
 <?php $x=0; 
+
+mysqli_data_seek($FluxCDcomposed,0);
 
 while($row = $FluxCDcomposed->fetch_assoc()) {
 
@@ -94,5 +147,11 @@ if(($x-1) % 3 == 2) echo "</TR>";
 ?>
 </TABLE>
 </DIV>
+
+<?php 
+}
+?>
+
+
 </BODY>
 </HTML>

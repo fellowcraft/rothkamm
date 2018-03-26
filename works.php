@@ -1,6 +1,6 @@
 <?php 
 
-header('Content-Type: text/html; charset=utf-8');
+header('Content-Type: text/html; charset=latin-1');
 date_default_timezone_set('America/Los_Angeles');
 include('dbcon.php');
 $rootpath = '/var/www/html/ROTHKAMM/';

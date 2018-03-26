@@ -107,36 +107,36 @@ include('favicon.php')
 
 <TR>
 <TD ALIGN="right" 
-    valign="buttom" 
-    CLASS="style2"><A HREF="albums.php"><span class="style6"><?php echo $album_rowcount ?> ALBUMS</span></a></TD> 
+valign="buttom" 
+CLASS="style2"><span class="style6"><A HREF="albums.php?images"><?php echo $album_rowcount ?> ALBUMS</A></span></TD><TD class="style6"><A HREF="albums.php?text">TEXT</A></TD> 
 </TR>
 
 
 <TR>
 <TD ALIGN="right" 
-    valign="buttom" 
-    CLASS="style2"><A HREF="works.php"><span class="style6"><?php echo $track_rowcount ?> WORKS</span></A></TD>
+valign="buttom" 
+CLASS="style2"><A HREF="works.php"><span class="style6"><?php echo $track_rowcount ?> WORKS</span></A></TD>
 </TR>
 
 
 <TR>
 <TD ALIGN="right" 
-    valign="buttom" 
-    CLASS="style2"><A HREF="press.php" ><span class="style6"><?php echo $reviews_rowcount ?> REVIEWS</span></A></TD>
+valign="buttom" 
+CLASS="style2"><A HREF="press.php" ><span class="style6"><?php echo $reviews_rowcount ?> REVIEWS</span></A></TD>
 </TR>
 
 
 <TR>
 <TD ALIGN="right" 
-    valign="buttom" 
-    CLASS="style2"><A HREF="biography.php" ><span class="style6">1 BIOGRAPHY</span></A></TD>
+valign="buttom" 
+CLASS="style2"><A HREF="biography.php" ><span class="style6">1 BIOGRAPHY</span></A></TD>
 </TR>
 
 
 <TR>
 <TD ALIGN="right" 
-    valign="buttom" 
-    CLASS="style2">
+valign="buttom" 
+CLASS="style2">
 
 <!-- Begin MailChimp Signup Form -->
 <link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
@@ -162,7 +162,7 @@ font:10px Helvetica,Arial,sans-serif;
 	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
     <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_50f5ee81acb6d99647f3b9269_d6e8a8620e" tabindex="-1" value=""></div>
 <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-<p align=center >ROTHKAMM &#176; 2520 Cimarron Street &#176; Los Angeles, CA 90018 &#176; USA<br>
+<p align=center ><!-- ROTHKAMM &#176; 2520 Cimarron Street &#176; Los Angeles, CA 90018 &#176; USA--><br>
 <img src="pictures/FHRseal3D.png" WIDTH=100 VSPACE=10 TITLE="The Royal Seal of ROTHKAMM">
 </p>
 </div>
@@ -179,7 +179,7 @@ font:10px Helvetica,Arial,sans-serif;
     CLASS="style2">
 <a href="https://www.youtube.com/channel/UCxXM8NaAs5lF0g-ueiZwHqw"><IMG SRC="pictures/icons/icon-youtube-b.png" WIDTH="31" HSPACE=10 VSPACE=2></a>
 <a href="https://www.facebook.com/rothkamm"><IMG SRC="pictures/icons/icon-facebook-b.png" WIDTH="31" HSPACE=10 VSPACE=2></a>
-<a href="https://github.com/fellowcraft/rheingold"><IMG SRC="pictures/icons/icon_GitHub-Mark.png" WIDTH="31" HSPACE=10 VSPACE=2></a>
+<a href="https://github.com/fellowcraft"><IMG SRC="pictures/icons/icon_GitHub-Mark.png" WIDTH="31" HSPACE=10 VSPACE=2></a>
 <a href="https://twitter.com/rothkamm"><IMG SRC="pictures/icons/twitter.jpg" WIDTH="31" HSPACE=10 VSPACE=2></a>
 <a href="https://play.google.com/store/music/artist?id=Avxn4ftlroneg4hradcznfcivlu"><IMG SRC="pictures/icons/icon_google_play.jpg"  WIDTH="31" HSPACE=10 VSPACE=2></a>
 <a href="http://frankrothkamm.bandcamp.com"><IMG SRC="pictures/icons/bandcamp_60x60_black.jpg" WIDTH="31" HSPACE=10 VSPACE=2></a></TD>

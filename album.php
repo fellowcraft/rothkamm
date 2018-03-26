@@ -41,12 +41,9 @@ where album like '%".trim($general_R['Name'])."%' ORDER BY ".$Att."
 ";
 $tracks_Q  = $mysqli->query($Query);
 /* 
-$tracks_R  = $tracks_Q->fetch_assoc(); 
-Here, $tracks_Q->fetch_assoc() is only used in while() statments. Each
-call advances the record pointer by 1, therefore, if this statement would 
-remain, the first while() use would start with record No 2. In order to 
-save a mysqli_data_seek($tracks_Q,0); statement that resets the pointer,
-the above statement is omited.
+Here, $tracks_Q->fetch_assoc() is used again in while() statments. 
+Each call to this method advances the record pointer by 1, therefore:
+mysqli_data_seek($tracks_Q,0) has to reset the pointer.
 */
 if(mysqli_num_rows($tracks_Q) < 1) exit("*** No tracks_R ***");
 
@@ -66,6 +63,14 @@ mysqli_data_seek($tracklocations_Q,0);
 
 
 $Query = "
+select class,album from PART
+where album like '".$general_R['Name']."'
+";
+$class_Q = $mysqli->query($Query);
+$class_R = $class_Q->fetch_assoc();
+
+
+$Query = "
 select distinct instruments from PART
 where album like '".$general_R['Name']."'
 ";
@@ -73,9 +78,10 @@ $instruments_Q = $mysqli->query($Query);
 $instruments_R = $instruments_Q->fetch_assoc();
 
 
+
 $Query = "
 Select sum(length) as seconds from PART
-where album like  '".$general_R['Name']."'
+where album like  '%".$general_R['Name']."%'
 ";
 $TT_Q = $mysqli->query($Query);
 $TT_R = $TT_Q->fetch_assoc();
@@ -101,8 +107,8 @@ while($row = $tracks_Q->fetch_assoc()) echo $row['ID']." ";
 <LINK HREF="css.css"  REL="stylesheet" TYPE="text/css">
 <LINK TYPE="text/css" HREF="skin/jplayer.blue.monday.css" REL="stylesheet" />
 
-<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-3.0.1.min.js"></script>
 
 <SCRIPT TYPE="text/javascript" SRC="js/jquery.jplayer.min.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" SRC="js/jplayer.playlist.min.js"></SCRIPT>
@@ -161,7 +167,7 @@ if ($locMP3 == "")  $msg = "[file missing]";
 $minutes = intval($row['length'] / 60);
 $seconds = intval($row['length'] % 60);
 
-echo "{	title:'<b>["
+echo "{	title:'["
 .$currentrow.
 "] opus "
 .$row['ID'].
@@ -169,13 +175,13 @@ echo "{	title:'<b>["
 .$Version.
 " ("
 .$row['year'].
-")</b/><br/><i>"
+")<br/><i>"
 .$minutes.
 ":"
 .sprintf('%02d',$seconds).
-"</i><br/>"
+"</i><br/><b>"
 .str_replace(chr(10)," ",str_replace("'","`",$row['Name'])).
-"<br/>".$msg."<br>',  mp3:'"
+"</b><br/>".$msg."<br>',  mp3:'"
 .$locMP3.
 "',   }, 
 ";
@@ -187,11 +193,11 @@ echo "{	title:'<b>["
 echo '], {
 playlistOptions: {  autoPlay: false },
 loop: true,
-swfPath: "/js",
+swfPath: "js",
 supplied: "mp3",
 volume: "100",
 smoothPlayBar: true,
-keyEnabled: false,
+keyEnabled: false
 });
 
 $("#jplayer_inspector_1").jPlayerInspector({jPlayer:$("#jquery_jplayer_1")});
@@ -251,9 +257,9 @@ var ImageSize  = 'WIDTH="' + window.innerWidth
 document.write('<CENTER><IMG SRC="<?php echo $cover_image ?>" BORDER=0 ' + ImageSize + '"></CENTER>' ) 
 </script> 
 
+<DIV  align="center" CLASS="style2c" > 
 <!-- jplayer instance -->
 <DIV ID="jquery_jplayer_1" CLASS="jp-jplayer"></DIV>
-<DIV  align="center" CLASS="style2c" >
 <DIV ID="jp_container_1" CLASS="jp-audio" ALIGN="CENTER" >
 <DIV CLASS="jp-type-playlist" >
 <DIV CLASS="jp-gui jp-interface" >
@@ -319,6 +325,24 @@ echo '</TD>
 }
 ?>
 
+<?php
+$linerFile = 'linernotes/'.trim($general_R["AlbumID"]).'.txt';
+
+if( file_exists($rootpath.$linerFile))
+{ 
+?>
+<TABLE WIDTH="75%" ALIGN="CENTER">
+<TR>
+<TD  CLASS="style3r" ALIGN="justify"><?php 
+$TXT = file_get_contents('linernotes/'.trim($general_R["AlbumID"]).'.txt');
+$TXT = str_replace(chr(10),'<br>',$TXT);
+echo $TXT;
+?></TD>
+</TR>
+</TABLE>
+<?php
+}
+?>
 
 <?php
 $linerFile = 'linernotes/'.trim($general_R["AlbumID"]).'.htm';
@@ -366,7 +390,7 @@ $AlbumIcon = 'pictures/albumcover/small/'
 ?>   
 <TR>
 <TD ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">Catalog No:</TD>
-<TD VALIGN="TOP"><?php echo trim($album_R["CatalogNo"]).".".$album_R["AlbumID"]; ?></TD>
+<TD VALIGN="TOP"><?php echo trim($album_R["CatalogNo"])." (LN".$album_R["AlbumID"].")"; ?></TD>
 </TR>
 <?php 
 } 
@@ -414,6 +438,9 @@ echo $album_R["Label"];
 
 
 <?php
+//mysqli_data_seek($TT_Q,0);
+
+
 if ($TT_R["seconds"] >= 3600) 
 {
 $TimeLength =  intval($TT_R["seconds"]/60/60%60,0) .":".
@@ -446,18 +473,47 @@ sprintf("%02d",intval($TT_R["seconds"]%60,0));
 ?>
 
 
-<TR>
-<TD ALIGN="RIGHT" VALIGN="TOP" nowrap CLASS="styleTiny"  >Location:</TD>
-<TD VALIGN="TOP"  ><?php
-
+<?php
 reset_tracklocations();
 
+if(mysqli_num_rows($tracklocations_Q) > 0) 
+{
+echo 
+'<TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" nowrap CLASS="styleTiny"  >Location:</TD>
+<TD VALIGN="TOP"  >'
+;
 while($row = $tracklocations_Q->fetch_assoc())
 {
-echo $row["city"]."<BR>";
+echo 
+$row["city"]."<BR>";
 } 
+echo 
+"</TD>
+</TR>"
+;
+}
+?>
+
+
+<?PHP if($class_R["class"] != '') 
+{ 
+echo "<TR>";
+//.mysqli_num_rows($class_Q).$class_R["class"];
+$array = explode(",",$class_R["class"]);
+?>
+<TD ALIGN="RIGHT" VALIGN="TOP" CLASS="style2b">Class:</TD>
+<TD VALIGN="TOP"><?php
+foreach($array as $value)
+{
+echo $value."<br>";
+}
 ?></TD>
 </TR>
+<?PHP 
+}
+?>
+
 
 
 <?PHP if(mysqli_num_rows($instruments_Q) > 0) 
@@ -563,7 +619,7 @@ if(strpos($fileinfo->getFilename(),$album_R["Name"]))
 {       
 echo 
 '<A HREF="pdf/'.$fileinfo->getFilename().
-'" TARGET="" ><IMG SRC="pictures/pdf-512.png" WIDTH="50" VALIGN="MIDDLE"> '
+'" TARGET="_blank" ><IMG SRC="pictures/pdf-512.png" WIDTH="50" ALIGN="MIDDLE"> '
 .$fileinfo->getFilename().'</A><BR> <BR>';
 }
 }
@@ -585,7 +641,7 @@ if(file_exists($rootpath.$MidiFile))
 <TD  ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">MIDI:</STRONG> </TD>
 <TD VALIGN="TOP"><A HREF='<?PHP
 echo $MidiFile
-?>' TARGET=""><IMG SRC="pictures/midi-512.png" WIDTH="50" VALIGN="MIDDLE" ><?PHP 
+?>' TARGET="_blank"><IMG SRC="pictures/midi-512.png" WIDTH="50" VALIGN="MIDDLE" ><?PHP 
 echo $album_R["Name"] 
 ?></TD>
 </TR>

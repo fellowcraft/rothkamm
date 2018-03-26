@@ -1,42 +1,59 @@
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	background-color: #EBCD29;
+body
+{
+margin-left: 0px;
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+background-color: #EBCD29;
 }
 
 a:link {   text-decoration: none; color: #82231c;}
 a:visited {  text-decoration: none; color: #82231c;}
 a:active  {  text-decoration: none; color: #82231c;}
-a:hover {    
-	text-decoration: none;
-	color: #330066;
-	background-color: #EBCD29;
+a:hover 
+{    
+text-decoration: none;
+color: #330066;
+background-color: #EBCD29;
 }
 
-TD{
+TD
+{
 font-family:Arial, helvetica, sans-serif; 
 color:#111111; 
 font-size:11px; 
-text-decoration:none;}
-
-#Layer1 {
-	width:100%;
-	position:absolute;
-	margin-left: 0px;
-	left: 0px;
-	top:  0px;
-	z-index:1;
+text-decoration:none;
 }
+
+#Layer1 
+{
+width:100%;
+position:absolute;
+margin-left: 0px; 
+left: 0px;
+top:  0px;
+z-index:1;
+}
+
+#Layer2 
+{
+width:100%;
+position:absolute;
+margin-left: 0px; 
+left: 0px;
+top:  0px;
+z-index:2;
+}
+
+/* navbar from http://w3schools.com  */
 
 #navbar {
  /*   background-color: #333;  Black background color */
     position: fixed; /* Make it stick/fixed */
     top: -100px; /* Hide the navbar 50 px outside of the top view */
     width: 100%; /* Full width */
-    transition: top 0.3s; /* Transition effect when sliding down (and up) */
-	z-index:2;
+    transition: top 0.1s; /* Transition effect when sliding down (and up) */
+	z-index:100;
 }
 
 /* Style the navbar links */
@@ -60,116 +77,142 @@ text-decoration:none;}
 .picBig{width:100%;min-width:30px;max-width:3000px;margin:0px;display:block;}
 .picTable{width:auto;min-width:30px;max-width:840px;margin:0px;height:auto;display:block;}
 
-.style1 {
-	font-size: 12px;
-	color: #2C2C2C;
-	font-family: "Courier New", Courier, mono;
+.style1 
+{
+font-size: 12px;
+color: #2C2C2C;
+font-family: "Courier New", Courier, mono;
 }
 
-
-.styleTiny {
-	font-size: 10px;
-	color: #333333;
-	font-family: "Courier New", Courier, mono;
-	border: none;
+.styleTiny 
+{
+font-size: 10px;
+color: #333333;
+font-family: "Courier New", Courier, mono;
+border: none;
 	
 }
 
-.style2 {
-	font-size: 9px;
-	font-style: normal;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	color: #666666;
-	border: 1px solid #EBCD29;
-	background-color: #FFFFFF;
+.style2 
+{
+font-size: 9px;
+font-style: normal;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color: #666666;
+border: 1px solid #EBCD29;
+background-color: #FFFFFF;
 }
 
-.style2b {
-	font-size: 0.9vw;
-	font-style: normal;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	color: #666666;
-	border: 3px solid #EBCD29;
-	background-color: #FFFFFF;
+.style2b 
+{
+font-size: 0.9vw;
+font-style: normal;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color: #666666;
+border: 3px solid #EBCD29;
+background-color: #FFFFFF;
 }
 
-.style2bTrans {
-	font-size: 9px;
-	font-style: normal;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	color: #666666;
-	border: 1px solid #EBCD29;
-}
-
-
-.style2c {
-	font-size: 10px;
-	font-style: normal;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	color: #222222;
-	border: 0px solid #eeeeee;
-	background-color: #FFFFFF;
-}
-
-.style2cfade {
-	font-size: 9px;
-	font-style: normal;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	color: #888888;
-
-}
-
-.style2cc {
-	font-size: 12px;
-	font-style: normal;
-	font-family: "Courier New", Courier, mono;
-	color: #222222;
-}
-
-.style2cTrans {
-	font-size: 9px;
-	font-style: normal;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	color: #666666;
-	border: 1px solid #efefef;
-}
-
-.style3 {
-	font-size: 2.4vw;
-	font-style: normal;
-	font-family: "Serif";
-	color: #222222;
-    line-height: 140%;	
-    letter-spacing: 150%;
-    height: auto;
-}
-
-.style3r {
-	font-size: 14px;
-	font-style: normal;
-	font-family: "Serif";
-	color: #222222;
-    line-height: 140%;	
-    letter-spacing: 150%;
-    height: auto;
+.style2bTrans 
+{
+font-size: 9px;
+font-style: normal;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color: #666666;
+border: 1px solid #EBCD29;
 }
 
 
-.style3c {
-	font-size: 10px;
-	font-style: normal;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	color: #111111;
+.style2c 
+{
+font-size: 10px;
+font-style: normal;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color: #222222;
+border: 1px solid #eeeeee;
+background-color: #FFFFFF;
 }
 
-.style5 {font-size: 34px}
-.style6 {font-size: 14px}
-.tiny {
-    font-size: 1.8vw;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+.style2cfade 
+{
+font-size: 9px;
+font-style: normal;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color: #888888;
 
 }
 
-.style27 {font-family: Verdana, Arial, Helvetica, sans-serif; color: #333333; font-size: 8px;}
+.style2cc 
+{
+font-size: 12px;
+font-style: normal;
+font-family: "Courier New", Courier, mono;
+color: #222222;
+}
 
-.subT1 {color:#000000; font-weight:bold;}
+.style2cTrans
+{
+font-size: 9px;
+font-style: normal;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color: #666666;
+border: 1px solid #efefef;
+}
+
+.style3
+{
+font-size: 2.4vw;
+font-style: normal;
+font-family: "Serif";
+color: #222222;
+line-height: 140%;	
+letter-spacing: 150%;
+height: auto;
+}
+
+.style3r 
+{
+font-size:14px;
+font-family: serif;
+line-height: 150%;
+letter-spacing: 120%;
+color: #222222;
+}
+
+.style3c 
+{
+font-size: 10px;
+font-style: normal;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color: #111111;
+}
+
+.style5 
+{
+font-size: 34px
+}
+
+.style6 
+{
+font-size: 14px
+}
+
+.tiny 
+{
+font-size: 1.8vw;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+
+}
+
+.style27
+{
+font-family: Verdana, Arial, Helvetica, sans-serif; 
+color: #333333; 
+font-size: 8px;
+}
+
+.subT1 
+{
+color:#000000; 
+font-weight:bold;
+}
