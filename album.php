@@ -10,10 +10,12 @@ $MP3web = "http://127.0.0.1/MP3320/";
 else 
 $MP3web = "http://mp3.rothkamm.com/";
 // ----------------------------------------------------------------------------
+$RewriteQueryString = URLdecode($_SERVER['QUERY_STRING']);
+$RewriteQueryString = str_replace("-"," ",$RewriteQueryString);
 // --------------------------- Database ---------------------------------------
 $Query = "
 select * from Album
-where Name COLLATE UTF8_GENERAL_CI like '".URLdecode(trim($_SERVER['QUERY_STRING']))."' 
+where Name COLLATE UTF8_GENERAL_CI like '".$RewriteQueryString."' 
 LIMIT 1 
 ";
 $general_Q = $mysqli->query($Query);
@@ -220,13 +222,17 @@ $("#jplayer_inspector_1").jPlayerInspector({jPlayer:$("#jquery_jplayer_1")});
 <meta property="og:description" content='<?php echo $album_R["Artist"]." (sound artist) ".$album_R["VisualArt"]." (visual artist)"; ?> '>
 
 <?php 
-$cover_image = "pictures/albumcover/".$album_R["Artist"]."-".$album_R["Name"].".jpg";
+$cover_image = 
+"pictures/albumcover/".$album_R["Artist"]."-".$album_R["Name"].".jpg";
 $URLAlbum    = URLencode(trim($album_R["Name"]));
 ?>
 
-<link rel="image_src"        href="http://rothkamm.com/<?php echo $cover_image; ?>">
-<meta property="og:image" content="http://rothkamm.com/<?php echo $cover_image; ?>">
-<meta property="og:url"   content="<?php echo "http://rothkamm.com/album.php?".$URLAlbum; ?>">
+<link rel="image_src"    
+      href="http://rothkamm.com/<?php echo $cover_image; ?>">
+<meta property="og:image" 
+      content="http://rothkamm.com/<?php echo $cover_image; ?>">
+<meta property="og:url"   
+      content="<?php echo "http://rothkamm.com/album.php?".$URLAlbum; ?>">
 
 
 <meta name="twitter:card" content="summary_large_image">
@@ -335,7 +341,8 @@ if( file_exists($rootpath.$linerFile))
 <TR>
 <TD  CLASS="style3r" ALIGN="justify"><?php 
 $TXT = file_get_contents('linernotes/'.trim($general_R["AlbumID"]).'.txt');
-$TXT = str_replace(chr(10),'<br>',$TXT);
+$TXT = str_replace("\n","<br>",$TXT);
+$TXT = preg_replace("/\r\n|\r/","<br>",$TXT);
 echo $TXT;
 ?></TD>
 </TR>

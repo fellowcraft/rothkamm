@@ -1,0 +1,4 @@
+	RewriteEngine on
+
+	RewriteRule "^(.*).cfm$" "$1.php" [R]
+

@@ -48,10 +48,10 @@ z-index:2;
 /* navbar from http://w3schools.com  */
 
 #navbar {
- /*   background-color: #333;  Black background color */
+/*  backgroUNd-color: #333; */
     position: fixed; /* Make it stick/fixed */
-    top: -100px; /* Hide the navbar 50 px outside of the top view */
-    width: 100%; /* Full width */
+    top: -100px; /* Hide the navbar */
+    width: 60px; /* width */
     transition: top 0.1s; /* Transition effect when sliding down (and up) */
 	z-index:100;
 }

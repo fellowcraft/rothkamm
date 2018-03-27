@@ -30,11 +30,12 @@ $author = $mysqli->query($Query);
 "Album: <a href='album.php?".str_replace(' ','+',$review_R['album'])."'>"
 .$review_R['album']."</a><br>
 Author: ".$review_R['author']."<br>
-Publication: ".$review_R['company']."<br>
+Publication: ".$review_R['company']."
+<a href=".$review_R['link'].">(source)</a> <br>
 Date: ".date_format(date_create($review_R['datetime']),'m/d/Y')."
-<br><br>
-".preg_replace('(Chr\(13\)Chr\(10\)| chr\(10\))','<br>',$review_R['text'])."
-<br><br>
+<br><br>"
+.preg_replace("/\r\n|\r/","<br>",$review_R['text'])
+."<br><br>
 [ Permalink: http://rothkamm.com/review.php?ID=".$review_R['ID']." ]"
 ; ?>
 </div>
