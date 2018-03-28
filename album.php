@@ -52,7 +52,7 @@ if(mysqli_num_rows($tracks_Q) < 1) exit("*** No tracks_R ***");
 
 $Query = "
 select distinct city from PART
-where album like '".trim($general_R['Name'])."'
+where album like '%".trim($general_R['Name'])."%'
 ";
 $tracklocations_Q = $mysqli->query($Query);
 $tracklocations_R = $tracklocations_Q->fetch_assoc();
@@ -66,7 +66,7 @@ mysqli_data_seek($tracklocations_Q,0);
 
 $Query = "
 select class,album from PART
-where album like '".$general_R['Name']."'
+where album like '%".$general_R['Name']."%'
 ";
 $class_Q = $mysqli->query($Query);
 $class_R = $class_Q->fetch_assoc();
@@ -74,12 +74,13 @@ $class_R = $class_Q->fetch_assoc();
 
 $Query = "
 select distinct instruments from PART
-where album like '".$general_R['Name']."'
+where album like '%".$general_R['Name']."%'
 ";
 $instruments_Q = $mysqli->query($Query);
 $instruments_R = $instruments_Q->fetch_assoc();
 
 
+//print_r($instruments_R);
 
 $Query = "
 Select sum(length) as seconds from PART
@@ -524,13 +525,30 @@ echo $value."<br>";
 
 
 <?PHP if(mysqli_num_rows($instruments_Q) > 0) 
-{ 
+{
+/* ----------------------------------------------------------------------------- 
+Each DB cell contains a comma seperated list of instruments that is NOT comma 
+terminated: Create a string with comma seperated instruments.
+----------------------------------------------------------------------------- */
+$instrument_str = '';
+while($row = $instruments_Q->fetch_array())
+{
+if(trim($row[0]) != "") 
+{
+$instrument_str .= $row[0].","; 
+}
+}
+/* ----------------------------------------------------------------------------- 
+from: https://stackoverflow.com/questions/5134176
+Take string, remove duplicates, (but here) return Array:
+----------------------------------------------------------------------------- */
+$instrument_str = array_keys(array_flip(explode(',', $instrument_str)));
+
 echo "<TR>";
-$array = explode(",",$instruments_R["instruments"]);
 ?>
 <TD ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">Instruments:</TD>
 <TD VALIGN="TOP"><?php
-foreach($array as $value)
+foreach($instrument_str as $value)
 {
 echo $value."<br>";
 }

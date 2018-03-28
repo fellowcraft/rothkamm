@@ -1,5 +1,11 @@
 <?php
 
+if(strlen($_SERVER["QUERY_STRING"]) > 2)
+{
+header("Location: http://rothkamm.com/album.php?".$_SERVER["QUERY_STRING"]);
+exit();
+}
+
 date_default_timezone_set('America/Los_Angeles');
 include('dbcon.php');
 
