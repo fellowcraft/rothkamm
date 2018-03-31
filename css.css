@@ -50,9 +50,9 @@ z-index:2;
 #navbar {
 /*  backgroUNd-color: #333; */
     position: fixed; /* Make it stick/fixed */
-    top: -100px; /* Hide the navbar */
-    width: 60px; /* width */
-    transition: top 0.1s; /* Transition effect when sliding down (and up) */
+    top: 0px; /* Hide the navbar */
+    width: 55px; /* width */
+/*  transition: top 0.1s; /* Transition effect when sliding down (and up) */
 	z-index:100;
 }
 

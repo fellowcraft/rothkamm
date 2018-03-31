@@ -114,7 +114,7 @@ include('favicon.php')
 <TR>
 <TD ALIGN="right" 
 valign="buttom" 
-CLASS="style2"><span class="style6"><A HREF="albums.php?images"><?php echo $album_rowcount ?> ALBUMS</A></span></TD><TD class="style6"><A HREF="albums.php?text">TEXT</A></TD> 
+CLASS="style2"><span class="style6"><?php echo $album_rowcount ?><i> ALBUMS</i></span></TD><TD class="style6" nowrap ><A HREF="albums.php?text">TEXT</A> <IMG WIDTH="10" IGN="middle" SRC="pictures/triangle.png"> <A HREF="albums.php?image">IMAGE</A></TD> 
 </TR>
 
 

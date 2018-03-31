@@ -77,10 +77,7 @@ select distinct instruments from PART
 where album like '%".$general_R['Name']."%'
 ";
 $instruments_Q = $mysqli->query($Query);
-$instruments_R = $instruments_Q->fetch_assoc();
 
-
-//print_r($instruments_R);
 
 $Query = "
 Select sum(length) as seconds from PART
@@ -195,7 +192,7 @@ echo "{	title:'["
 
 echo '], {
 playlistOptions: {  autoPlay: false },
-loop: true,
+loop: false,
 swfPath: "js",
 supplied: "mp3",
 volume: "100",
@@ -524,7 +521,7 @@ echo $value."<br>";
 
 
 
-<?PHP if(mysqli_num_rows($instruments_Q) > 0) 
+<?PHP if(mysqli_num_rows($instruments_Q) !=  0) 
 {
 /* ----------------------------------------------------------------------------- 
 Each DB cell contains a comma seperated list of instruments that is NOT comma 
@@ -533,10 +530,7 @@ terminated: Create a string with comma seperated instruments.
 $instrument_str = '';
 while($row = $instruments_Q->fetch_array())
 {
-if(trim($row[0]) != "") 
-{
 $instrument_str .= $row[0].","; 
-}
 }
 /* ----------------------------------------------------------------------------- 
 from: https://stackoverflow.com/questions/5134176
@@ -550,7 +544,10 @@ echo "<TR>";
 <TD VALIGN="TOP"><?php
 foreach($instrument_str as $value)
 {
+if(trim($value) != "") 
+{
 echo $value."<br>";
+}
 }
 ?></TD>
 </TR>

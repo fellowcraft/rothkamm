@@ -5,26 +5,27 @@ date_default_timezone_set('America/Los_Angeles');
 include('dbcon.php');
 $rootpath = '/var/www/html/ROTHKAMM/';
 
+
 $Query = "
 select count(ID) as Parts from PART
 WHERE Status <> 0
 ";
 $all_Q = $mysqli->query($Query);
-$all_R = $all_Q->fetch_assoc();
+
 
 $Query = "
 select * from PART
 ORDER BY year DESC, month DESC, day DESC, No DESC
 ";
 $tracks_Q = $mysqli->query($Query);
-//$tracks_R = $tracks_Q->fetch_assoc();
+
 
 $Query = "
 select sum(length) as SumTotal from PART
 WHERE Status <> 0
 ";
-$A_Q = $mysqli->query($Query);
-$A_R = $A_Q->fetch_assoc();
+$Sum_Q = $mysqli->query($Query);
+
 
 $mysqli->close();
 ?>
@@ -32,7 +33,10 @@ $mysqli->close();
 <HTML>
 
 <HEAD>
-<TITLE><?php echo $all_R["Parts"]." works 1982-2018 ROTHKAMM" ?></TITLE>
+<TITLE><?php 
+$Q = $all_Q->fetch_assoc();
+echo $Q["Parts"]." works 1982-2018 ROTHKAMM" 
+?></TITLE>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -44,23 +48,43 @@ $mysqli->close();
 <?php include("navbar.php"); ?>
 
 <DIV ID="Layer1">
-<TABLE WIDTH="75%" BORDER="0" ALIGN="center" CELLPADDING="5" CELLSPACING="5"  BGCOLOR="FFFFFF">
+<TABLE 
+WIDTH="75%"
+BORDER="0" 
+ALIGN="center" 
+CELLPADDING="5" 
+CELLSPACING="5"  
+BGCOLOR="FFFFFF">
 
 <TR>
-<TD COLSPAN="9" HEIGHT="16" VALIGN="middle" BGCOLOR="FFFFFF"  CLASS="style1" ALIGN="CENTER" ><STRONG CLASS="styleTiny"><?php echo $all_R['Parts']." works  - ".round(($A_R['SumTotal']/60)/60,0)." hours ".round($A_R['SumTotal']/60%60,0)." minutes ".sprintf('%02d', $A_R["SumTotal"]%60)." seconds"; ?></STRONG></TD>
+<TD 
+COLSPAN="9" 
+HEIGHT="16" 
+VALIGN="middle" 
+CLASS="style1" 
+ALIGN="CENTER" 
+><STRONG CLASS="styleTiny"><?php 
+$Q = $all_Q->fetch_assoc();
+echo $Q['Parts']." works  - ";
+$Q = $Sum_Q->fetch_assoc();
+echo intval(($Q['SumTotal']/60)/60,0)  ." hours "
+.intval($Q['SumTotal']/60%60,0)    ." minutes "
+.sprintf('%02d', $Q["SumTotal"]%60)." seconds"; ?></STRONG></TD>
 </TR>
 
 <TR>
 <TD VALIGN="top" BGCOLOR="FFFFFF"  CLASS="style2b">album</TD>
-<TD VALIGN="top" BGCOLOR="FFFFFF"  CLASS="style2b">year</TD>
+<TD VALIGN="top" BGCOLOR="FFFFFF"  CLASS="style2b">date</TD>
 <TD VALIGN="top" BGCOLOR="FFFFFF"  CLASS="style2b">opus</TD>
 <TD VALIGN="top" BGCOLOR="FFFFFF"  CLASS="style2b">work</TD>
 <TD VALIGN="top" BGCOLOR="FFFFFF"  CLASS="style2b">city</TD>
 </TR>
 
+
 <?php
 //mysqli_data_seek($tracks_Q,0);
-while($row = $tracks_Q->fetch_assoc()) { 
+while($row = $tracks_Q->fetch_assoc()) 
+{ 
 
 $MP3s = "/var/www/html/MP3320/";
 $MP3name = "";
@@ -85,9 +109,14 @@ sprintf("%02d",($row["length"]%3600)/60).":".
 sprintf("%02d", $row["length"]%60);
 }
 ?>
+
+
 <TR>
-<TD ALIGN="RIGHT" VALIGN="top" CLASS="style2fade" >
-<?php if(trim($row["album"]) != '') 
+<TD 
+ALIGN="RIGHT"
+VALIGN="top" 
+CLASS="style2fade"
+><?php if(trim($row["album"]) != '') 
 {
 $array = explode(",",$row["album"]);
 foreach($array as $value)
@@ -97,27 +126,47 @@ echo "<A HREF='album.php?".$WebName."'>".$value.
 " <br />"; 
 } 
 }
-
 echo '</TD>';
 
-echo '<TD VALIGN="top" NOWRAP   CLASS="style2">'.$row["year"].
-'<IMG SRC="pictures/shim.gif" WIDTH="1" HEIGHT="12" ALIGN="TOP"></TD>
 
-<TD ALIGN="CENTER" VALIGN="top" CLASS="style2"><STRONG>'.$row["ID"].'</STRONG></TD>
+echo '<TD VALIGN="top" NOWRAP   CLASS="style2">';
+if($row["month"] != '') 
+{
+echo $row["month"]."/".$row["day"]."/";
+}
+echo $row["year"].
+'</TD>
+
+
+<TD ALIGN="CENTER" VALIGN="top" CLASS="style2"
+><STRONG>'.$row["ID"].'</STRONG></TD>
+
 
 <TD VALIGN="top" CLASS="style3c">';
 
-if($MP3name != '') { echo '<a href="'.$MP3name.'">'; }
+if($MP3name != '') echo '<a href="'.$MP3name.'">'; 
 
-echo '<B>'.$row["Name"].'</B> <SPAN CLASS="style2cfade">'.$WorkLength.'</SPAN><br>
-    <span class="style2cfade">'.$row["artist"];
+echo '<B>'
+.$row["Name"]
+.'</B> <SPAN CLASS="style2cfade">'
+.$WorkLength
+.'</SPAN><br><span class="style2cfade">'
+.$row["artist"];
 
-if($row["sample"] != '') { echo '( sample by: '.$row["sample"].')'; }
-echo '</span>      </TD> 
-<TD VALIGN="top" CLASS="style2cfade"  >'.str_replace(",","<br>",$row["city"]).'</TD>
+if($row["sample"] != '') echo '( sample by: '.$row["sample"].')';
+if($row["instruments"] != '') echo '<br><B>'.$row["instruments"].'</br?';
+
+echo '</span></TD> 
+
+
+<TD VALIGN="top" CLASS="style2cfade"  >'
+.str_replace(",","<br>",$row["city"])
+.'</TD>
+
 </TR>';
 
-} ?>
+} 
+?>
 
 </TR>
 </TABLE>
