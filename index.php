@@ -104,17 +104,10 @@ include('favicon.php')
 
 <TABLE ID="LayerE" WIDTH="50%" CELLPADDING="10" CELLSPACING="10" BGCOLOR="EBCD29" >
 
-<!--
-<TR>
-<TD> <br/>
-</TD> 
-</TR>
--->
-
 <TR>
 <TD ALIGN="right" 
 valign="buttom" 
-CLASS="style2"><span class="style6"><?php echo $album_rowcount ?><i> ALBUMS</i></span></TD><TD class="style6" nowrap ><A HREF="albums.php?text">TEXT</A> <IMG WIDTH="10" IGN="middle" SRC="pictures/triangle.png"> <A HREF="albums.php?image">IMAGE</A></TD> 
+CLASS="style2"><span class="style6"><A HREF="albums.php"><?php echo $album_rowcount ?> ALBUMS</A></span></TD><!--<TD class="style6" nowrap ><A HREF="albums.php?text">TEXT</A> <IMG WIDTH="10" IGN="middle" SRC="pictures/triangle.png"> <A HREF="albums.php?image">IMAGE</A></TD>--> 
 </TR>
 
 

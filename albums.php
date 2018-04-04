@@ -41,78 +41,28 @@ $mysqli->close();
 <LINK HREF="css.css" REL="stylesheet" TYPE="text/css"></HEAD>
 
 <BODY >
-<?php include("navbar.php");
 
-if(isset($_GET["text"]))
-{
-?>
-<DIV id="Layer2" >
-
-<TABLE  
-WIDTH="75%" 
-BORDER="0" 
-ALIGN="center" 
-CELLPADDING="0" 
-CELLSPACING="30"  
-BGCOLOR="FFFFFF"
->
-
-<?php $x=0; 
-
-while($row = $FluxCDcomposed->fetch_assoc())
-{
-$x = $x + 1;
-
-if(($x-1) % 3 == 0) echo "<TR>";
-
-$URLAlbum = URLencode($row["Name"]);
-?>
-<TD 
-CLASS='style2cc'
-ALIGN='CENTER' 
-VALIGN='MIDDLE'
-><A HREF='album.php?<?php echo $URLAlbum."'>"
-//. $row["Artist"] . 
-//" "
-. $row["Name"] .
-//" "
-//. $row["NameExt"] . 
-" <br>("
-. $row["Composed"] . 
-")</A></TD>"; 
-
-//if(($x-1) % 3 == 2) 
-echo "</TR>";
-
-}
-
-?>
-</TABLE>
-</DIV>
-
-<?php 
-} 
-else
-{
-?>
+<?php include("navbar.php"); ?>
 
 <DIV id="Layer1" >
 <TABLE  
-        BORDER="0" 
-        ALIGN="center" 
-        CELLPADDING="0" 
-        CELLSPACING="5"  
-        BGCOLOR="FFFFFF"
-        >
+BORDER="0" 
+ALIGN="center" 
+CELLPADDING="0" 
+CELLSPACING="5"  
+BGCOLOR="FFFFFF"
+>
 
-<?php $x=0; 
+<?php 
 
+$x=0; 
 mysqli_data_seek($FluxCDcomposed,0);
 
-while($row = $FluxCDcomposed->fetch_assoc()) {
+while($row = $FluxCDcomposed->fetch_assoc()) 
+{
 
-$x = $x + 1;
-
+$x += 1;
+// every 3rd column a new row 
 if(($x-1) % 3 == 0) echo "<TR>";
 
 // $URLAlbum = str_replace($URLAlbum,'%20','+');
@@ -122,12 +72,14 @@ $URLAlbum = URLencode($row["Name"]);
 //$AlbumImage = "pictures/albumcover/small/".$URLArtist."-".$URLAlbum.".jpg"; 
 $AlbumImage = "pictures/albumcover/small/".$row["Artist"]."-".$row["Name"].".jpg"; 
 ?>
-<TD  WIDTH='33.33%'
+<TD 
+WIDTH="280"
 ALIGN='CENTER' 
 VALIGN='MIDDLE'
 ><A HREF='album.php?
-<?php
-echo $URLAlbum.
+<?php 
+echo
+$URLAlbum.
 "'><IMG CLASS='pic' SRC='"
 .$AlbumImage.
 "' BORDER='0' TITLE='"
@@ -138,7 +90,34 @@ echo $URLAlbum.
 . $row["NameExt"] . 
 " "
 . $row["Composed"] . 
-"'></A></TD>"; 
+"'></A>"; 
+
+// -----------------------------------------------------------------------------
+/* 
+Make array from space seperated substrings and 
+loop through it with numbered index and
+break and x array element. 
+This is another implementation of array_slice()
+*/
+$Array_Name = explode(" ",$row["Name"]);
+$Short_Name = '';
+foreach ($Array_Name as $key => $val) 
+{
+$Short_Name .= "$val ";
+if($key == 2) break;
+}
+// -----------------------------------------------------------------------------
+
+$URLAlbum = URLencode($row["Name"]);
+
+echo 
+"<span CLASS='styleTiny'><br><A 
+HREF='album.php?".$URLAlbum. "'>"
+. strtoupper(trim(substr($row["Name"],0,15))) .
+//. $Short_Name .
+" <br>("
+. $row["Composed"] . 
+")</A></span></TD>"; 
 
 if(($x-1) % 3 == 2) echo "</TR>";
 
@@ -148,9 +127,6 @@ if(($x-1) % 3 == 2) echo "</TR>";
 </TABLE>
 </DIV>
 
-<?php 
-}
-?>
 
 
 </BODY>

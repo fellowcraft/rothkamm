@@ -213,32 +213,27 @@ $("#jplayer_inspector_1").jPlayerInspector({jPlayer:$("#jquery_jplayer_1")});
 
 <?php include("favicon.php") ?>
 
+<?php 
+$cover_folder ="pictures/albumcover/";
+$cover_image = $album_R["Artist"]."-".$album_R["Name"].".jpg";
+$cover_image = str_replace(" ","%20",$cover_image);
+$URLAlbum    = URLencode(trim($album_R["Name"]));
+?>
+
 <meta property="fb:app_id" content="367367553687587">
 <meta property='og:title' content='<?php echo $album_R["Name"]." ".$album_R["Composed"]." ".$album_R["NameExt"]; ?> '> 
 <meta property="og:type" content="music.album">
 <meta property="og:site_name" content="ROTHKAMM">
 <meta property="og:description" content='<?php echo $album_R["Artist"]." (sound artist) ".$album_R["VisualArt"]." (visual artist)"; ?> '>
-
-<?php 
-$cover_image = 
-"pictures/albumcover/".$album_R["Artist"]."-".$album_R["Name"].".jpg";
-$URLAlbum    = URLencode(trim($album_R["Name"]));
-?>
-
-<link rel="image_src"    
-      href="http://rothkamm.com/<?php echo $cover_image; ?>">
-<meta property="og:image" 
-      content="http://rothkamm.com/<?php echo $cover_image; ?>">
-<meta property="og:url"   
-      content="<?php echo "http://rothkamm.com/album.php?".$URLAlbum; ?>">
+<meta property="og:image" content="http://rothkamm.com/<?php echo $cover_folder.$cover_image; ?>">
+<meta property="og:url" content="<?php echo "http://rothkamm.com/album.php?".$URLAlbum; ?>">
 
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="ROTHKAMM">
 <meta name="twitter:title" content='<?php echo $album_R["Artist"]." - ".$album_R["Name"]; ?>'>
 <meta name="twitter:description" content="Album by <?php echo $album_R['Artist'].' - '.$album_R['Name'];?>">
-<meta name="twitter:image" content="http://rothkamm.com/<?php echo $cover_image;?>">
-
+<meta name="twitter:image" content="http://rothkamm.com/<?php echo $cover_folder.$cover_image;?>">
 
 </HEAD>
 
@@ -258,10 +253,72 @@ var ImageSize = 'HEIGHT="' + window.innerHeight
 var ImageSize  = 'WIDTH="' + window.innerWidth 
 }
 
-document.write('<CENTER><IMG SRC="<?php echo $cover_image ?>" BORDER=0 ' + ImageSize + '"></CENTER>' ) 
+document.write('<CENTER><IMG SRC="<?php echo $cover_folder.$cover_image ?>" BORDER=0 ' + ImageSize + '"></CENTER>' ) 
 </script> 
 
+
+<?php 
+// -------------------------- PDF & MIDI Icons---------------------------------
+$dirname = $rootpath."pdf";
+$dir     = new DirectoryIterator($dirname);
+$PDF     = 'false';
+$MidiFile = "midi/rothkamm-".trim($album_R["Name"]).".mid";
+// ----------- test -----------------------------------------------------------
+foreach ($dir as $fileinfo) 
+{        
+if(strpos($fileinfo->getFilename(),$album_R["Name"])) $PDF="true";
+}
+// ----------- PDF in Dir -----------------------------------------------------
+if($PDF !== 'false' or file_exists($rootpath.$MidiFile))
+{
+?>    
+<TABLE ALIGN="CENTER">
+<TR>
+<TD VALIGN="TOP">
+<?php
+foreach ($dir as $fileinfo)
+{        
+if(strpos($fileinfo->getFilename(),$album_R["Name"])) 
+{       
+echo 
+'<A HREF="pdf/'.$fileinfo->getFilename().
+'" TARGET="_blank" ><IMG 
+SRC="pictures/pdf-512.png" 
+WIDTH="50" 
+VSPACE="20" 
+HSPACE="20" 
+ALIGN="MIDDLE"></A>';
+}
+}
+
+
+// ------------------------- MIDI ---------------------------------------------
+
+if(file_exists($rootpath.$MidiFile)) 
+{ 
+?>
+<A HREF='<?PHP
+echo $MidiFile
+?>' TARGET="_blank"><IMG 
+SRC="pictures/midi-512.png" 
+VSPACE="20" 
+HSPACE="20" 
+WIDTH="50" 
+VALIGN="MIDDLE" ></A>
+<?PHP 
+} 
+
+
+echo
+'</TD>
+</TR>
+</TABLE>';
+}
+?>
+
 <DIV  align="center" CLASS="style2c" > 
+
+
 <!-- jplayer instance -->
 <DIV ID="jquery_jplayer_1" CLASS="jp-jplayer"></DIV>
 <DIV ID="jp_container_1" CLASS="jp-audio" ALIGN="CENTER" >
@@ -641,8 +698,8 @@ if(strpos($fileinfo->getFilename(),$album_R["Name"]))
 {       
 echo 
 '<A HREF="pdf/'.$fileinfo->getFilename().
-'" TARGET="_blank" ><IMG SRC="pictures/pdf-512.png" WIDTH="50" ALIGN="MIDDLE"> '
-.$fileinfo->getFilename().'</A><BR> <BR>';
+'" TARGET="_blank" >'
+.$fileinfo->getFilename().'</A><BR>';
 }
 }
 echo
@@ -662,9 +719,9 @@ if(file_exists($rootpath.$MidiFile))
 <TR>
 <TD  ALIGN="RIGHT" VALIGN="TOP" CLASS="styleTiny">MIDI:</STRONG> </TD>
 <TD VALIGN="TOP"><A HREF='<?PHP
-echo $MidiFile
-?>' TARGET="_blank"><IMG SRC="pictures/midi-512.png" WIDTH="50" VALIGN="MIDDLE" ><?PHP 
-echo $album_R["Name"] 
+echo $MidiFile;
+?>' TARGET="_blank"><?PHP 
+echo $album_R["Name"];
 ?></TD>
 </TR>
 <?PHP 

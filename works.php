@@ -129,7 +129,7 @@ echo "<A HREF='album.php?".$WebName."'>".$value.
 echo '</TD>';
 
 
-echo '<TD VALIGN="top" NOWRAP   CLASS="style2">';
+echo '<TD VALIGN="top" CLASS="style2cfade">';
 if($row["month"] != '') 
 {
 echo $row["month"]."/".$row["day"]."/";
@@ -138,7 +138,7 @@ echo $row["year"].
 '</TD>
 
 
-<TD ALIGN="CENTER" VALIGN="top" CLASS="style2"
+<TD ALIGN="CENTER" VALIGN="middle" BGCOLOR="EBCD29" 
 ><STRONG>'.$row["ID"].'</STRONG></TD>
 
 
@@ -154,7 +154,7 @@ echo '<B>'
 .$row["artist"];
 
 if($row["sample"] != '') echo '( sample by: '.$row["sample"].')';
-if($row["instruments"] != '') echo '<br><B>'.$row["instruments"].'</br?';
+if($row["instruments"] != '') echo '<br><B>'.$row["instruments"].'</br>';
 
 echo '</span></TD> 
 
