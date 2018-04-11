@@ -1,5 +1,6 @@
 <?php
 
+//testing
 date_default_timezone_set('America/Los_Angeles');
 include('dbcon.php');
 $rootpath = '/var/www/html/ROTHKAMM/';
@@ -105,14 +106,19 @@ while($row = $tracks_Q->fetch_assoc()) echo $row['ID']." ";
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <LINK HREF="css.css"  REL="stylesheet" TYPE="text/css">
+
 <LINK TYPE="text/css" HREF="skin/jplayer.blue.monday.css" REL="stylesheet" />
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://code.jquery.com/jquery-migrate-3.0.1.min.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/jplayer/jquery.jplayer.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/add-on/jplayer.playlist.min.js"></script> 
+
+<!--
 <SCRIPT TYPE="text/javascript" SRC="js/jquery.jplayer.min.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" SRC="js/jplayer.playlist.min.js"></SCRIPT>
-
+-->
 
 <?php
 
@@ -122,8 +128,7 @@ $(document).ready(function(){
 
 new jPlayerPlaylist({
 jPlayer: "#jquery_jplayer_1",
-cssSelectorAncestor: "#jp_container_1"
-}, [
+cssSelectorAncestor: "#jp_container_1" }, [
 ';
 
 
@@ -193,7 +198,7 @@ echo "{	title:'["
 echo '], {
 playlistOptions: {  autoPlay: false },
 loop: false,
-swfPath: "js",
+swfPath: "http://www.jplayer.org/latest/js/Jplayer.swf",
 supplied: "mp3",
 volume: "100",
 smoothPlayBar: true,
