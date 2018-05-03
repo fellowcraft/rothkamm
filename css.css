@@ -4,17 +4,18 @@ margin-left: 0px;
 margin-top: 0px;
 margin-right: 0px;
 margin-bottom: 0px;
-background-color: #EBCD29;
+#background-color: #00FF00;
+background-color: #0000FF;
 }
 
-a:link {   text-decoration: none; color: #82231c;}
-a:visited {  text-decoration: none; color: #82231c;}
-a:active  {  text-decoration: none; color: #82231c;}
+a:link {   text-decoration: none; color: #FF0000;}
+a:visited {  text-decoration: none; color: #FF0000;}
+a:active  {  text-decoration: none; color: #FF0000;}
 a:hover 
 {    
 text-decoration: none;
 color: #330066;
-background-color: #EBCD29;
+background-color: #00FF00;
 }
 
 TD
@@ -69,7 +70,7 @@ z-index:2;
 }
 
 #navbar a:hover {
-    background-color: #82231c;
+    background-color: #00FF00;
     color: black;
 }
 
@@ -99,7 +100,7 @@ font-size: 9px;
 font-style: normal;
 font-family: Verdana, Arial, Helvetica, sans-serif;
 color: #666666;
-border: 1px solid #EBCD29;
+border: 1px solid #00FF00;
 background-color: #FFFFFF;
 }
 
@@ -109,7 +110,7 @@ font-size: 0.9vw;
 font-style: normal;
 font-family: Verdana, Arial, Helvetica, sans-serif;
 color: #666666;
-border: 3px solid #EBCD29;
+border: 3px solid #00FF00;
 background-color: #FFFFFF;
 }
 
@@ -119,7 +120,7 @@ font-size: 9px;
 font-style: normal;
 font-family: Verdana, Arial, Helvetica, sans-serif;
 color: #666666;
-border: 1px solid #EBCD29;
+border: 1px solid #00FF00;
 }
 
 

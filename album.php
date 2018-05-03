@@ -309,7 +309,7 @@ SRC="pictures/midi-512.png"
 VSPACE="20" 
 HSPACE="20" 
 WIDTH="50" 
-VALIGN="MIDDLE" ></A>
+ALIGN="MIDDLE" ></A>
 <?PHP 
 } 
 
@@ -447,8 +447,8 @@ $AlbumIcon = 'pictures/albumcover/small/'
 
 
 <TR>
-<TD VALIGN="TOP" BGCOLOR="#EBCD29" CLASS="styleTiny" width="50%">&nbsp;</TD>
-<TD BGCOLOR="#EBCD29"> &nbsp</TD>
+<TD VALIGN="TOP" BGCOLOR="#00FF00" CLASS="styleTiny" width="50%">&nbsp;</TD>
+<TD BGCOLOR="#00FF00"> &nbsp</TD>
 </TR>
 
 
@@ -727,7 +727,7 @@ if(file_exists($rootpath.$MidiFile))
 echo $MidiFile;
 ?>' TARGET="_blank"><?PHP 
 echo $album_R["Name"];
-?></TD>
+?>.mid</TD>
 </TR>
 <?PHP 
 } 

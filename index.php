@@ -102,7 +102,7 @@ include('favicon.php')
 <BODY>
 
 
-<TABLE ID="LayerE" WIDTH="50%" CELLPADDING="10" CELLSPACING="10" BGCOLOR="EBCD29" >
+<TABLE ID="LayerE" WIDTH="50%" CELLPADDING="10" CELLSPACING="10" >
 
 <TR>
 <TD ALIGN="right" 
@@ -175,7 +175,7 @@ font:10px Helvetica,Arial,sans-serif;
 <TR>
 <TD ALIGN="center" 
     valign="buttom" 
-    CLASS="style2">
+    >
 <a href="https://www.youtube.com/channel/UCxXM8NaAs5lF0g-ueiZwHqw"><IMG SRC="pictures/icons/icon-youtube-b.png" WIDTH="31" HSPACE=10 VSPACE=2></a>
 <a href="https://www.facebook.com/rothkamm"><IMG SRC="pictures/icons/icon-facebook-b.png" WIDTH="31" HSPACE=10 VSPACE=2></a>
 <a href="https://github.com/fellowcraft"><IMG SRC="pictures/icons/icon_GitHub-Mark.png" WIDTH="31" HSPACE=10 VSPACE=2></a>
