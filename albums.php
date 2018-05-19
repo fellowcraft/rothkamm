@@ -65,12 +65,15 @@ $x += 1;
 // every 3rd column a new row 
 if(($x-1) % 3 == 0) echo "<TR>";
 
-// $URLAlbum = str_replace($URLAlbum,'%20','+');
 $URLArtist= URLencode($row["Artist"]);
 $URLAlbum = URLencode($row["Name"]);
+//$URLAlbum = str_replace($URLAlbum,'%20','-');
 
 //$AlbumImage = "pictures/albumcover/small/".$URLArtist."-".$URLAlbum.".jpg"; 
-$AlbumImage = "pictures/albumcover/small/".$row["Artist"]."-".$row["Name"].".jpg"; 
+// $AlbumImage = "pictures/albumcover/small/".$row["Artist"]."-".$row["Name"].".jpg"; 
+$Artist = str_replace(' ','-',$row["Artist"]);   
+$Name   = str_replace(' ','-',$row["Name"]);
+$AlbumImage = "pictures/albumcover/small/".$Artist."-".$Name.".jpg"; 
 ?>
 <TD 
 WIDTH="280"

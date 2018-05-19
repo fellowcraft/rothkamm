@@ -220,8 +220,9 @@ $("#jplayer_inspector_1").jPlayerInspector({jPlayer:$("#jquery_jplayer_1")});
 
 <?php 
 $cover_folder ="pictures/albumcover/";
-$cover_image = $album_R["Artist"]."-".$album_R["Name"].".jpg";
-$cover_image = str_replace(" ","%20",$cover_image);
+$cover_image = str_replace(' ','-',$album_R["Artist"])."-".
+               str_replace(' ','-',$album_R["Name"]).".jpg";
+//$cover_image = str_replace(" ","-",$cover_image);
 $URLAlbum    = URLencode(trim($album_R["Name"]));
 ?>
 
