@@ -229,9 +229,7 @@ echo "{	title:'["
 // "."
 // .$row['year'].sprintf('%02d',$row['month']).sprintf('%02d',$row['day']).
 "<br/><i>"
-.$minutes.
-":"
-.sprintf('%02d',$seconds).
+.($row['length'] >= 3600 ? sprintf("%02d:%02d:%02d", intval($row['length']/3600,0), intval($row['length']/60%60,0), intval($row['length']%60,0)) : $minutes.":".sprintf('%02d',$seconds)).
 "</i><br/>("
 .$row['year']
 .")<br/>"
@@ -253,6 +251,17 @@ volume: "100",
 smoothPlayBar: false,
 keyEnabled: false
 });
+
+$.jPlayer.prototype._convertTime = (function(orig){
+return function(s) {
+if (typeof s !== "number" || !isFinite(s)) s = 0;
+if (s >= 3600) {
+var h = Math.floor(s/3600), m = Math.floor(s%3600/60), sec = Math.floor(s%60);
+return (h<10?"0":"")+h+":"+(m<10?"0":"")+m+":"+(sec<10?"0":"")+sec;
+}
+return orig.call(this, s);
+};
+})($.jPlayer.prototype._convertTime);
 
 $("#jplayer_inspector_1").jPlayerInspector({jPlayer:$("#jquery_jplayer_1")});
 
