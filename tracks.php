@@ -159,8 +159,8 @@ echo $row["year"].
 
 <TD VALIGN="top" CLASS="style3c">';
 
-if($MP3name != '') echo '<a href="'.$MP3name.'">'; 
-// if($MP3name != '') echo '<a href="'.$MP3name.'">'; 
+if($MP3name != '') echo '<button type="button" class="trkplay" data-src="'.htmlspecialchars($MP3name, ENT_QUOTES).'" title="play" style="background:none;border:none;cursor:pointer;padding:0 4px 0 0;">&#9654;</button><a href="'.$MP3name.'" class="trkplay" data-src="'.htmlspecialchars($MP3name, ENT_QUOTES).'">';
+// if($MP3name != '') echo '<a href="'.$MP3name.'">';
 
 echo '<B>'
 .$row["Name"]
@@ -185,6 +185,26 @@ echo '</span></TD>'
 
 </TR>
 </TABLE>
+
+<audio id="trkplayer" preload="none" style="display:none;"></audio>
+<script>
+(function(){
+var p=document.getElementById('trkplayer'), cur=null;
+function setBtn(btn,playing){ if(btn&&btn.tagName==='BUTTON') btn.innerHTML=playing?'&#9208;':'&#9654;'; }
+document.addEventListener('click',function(e){
+  var t=(e.target&&e.target.closest)?e.target.closest('.trkplay'):null;
+  if(!t) return;
+  e.preventDefault();
+  var src=t.getAttribute('data-src');
+  var btn=(t.tagName==='BUTTON')?t:t.parentNode.querySelector('button.trkplay');
+  if(cur===src&&!p.paused){ p.pause(); setBtn(btn,false); cur=null; return; }
+  document.querySelectorAll('button.trkplay').forEach(function(b){setBtn(b,false);});
+  if(cur!==src){ p.src=src; cur=src; }
+  p.play(); setBtn(btn,true);
+});
+p.addEventListener('ended',function(){ cur=null; document.querySelectorAll('button.trkplay').forEach(function(b){setBtn(b,false);}); });
+})();
+</script>
 
 </DIV> 
 
