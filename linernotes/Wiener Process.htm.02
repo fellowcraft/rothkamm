@@ -1,0 +1,185 @@
+<!--
+<p>Electronic composer and musician, philosopher and conceptual artist Frank Rothkamm doesn't do anything halfway. In 2010, Frank was diagnosed with tinnitus, a brain processing disorder that greatly disturbed his sleep. So he started to research a sound treatment that would "mask" or eliminate the high frequencies he was doomed to hear for the rest of his life.
+</p>
+<p>
+After 4 years of experimentation Frank failed to find a cure for tinnitus, but discovered what he proposes as the "scientific method of psychostochastics" and a new conception of music: Music that has no time. Statistically designed - so that listeners will not remember what was heard a few minutes ago and what they hear will be different upon each encounter - they enter into what he postulates as a "zone where there is no beginning nor end, no linear development but the laws of quantum mechanics". To gain a new understanding of our perception of sound, time and uncertainty, he calls this the Wiener Process; as a nod to the mathematician and philosopher Norbert Wiener.
+</p>
+<p>
+Seeded from a single algorithm, the Wiener Process unfolds in 24 distinct 1 hour "zones" or pieces. Each is nothing but a drawn-out instant of time, an ultra magnified moment of Planck time. There are 24 of these, because there are 24 hours in the day, so the Wiener Process, "once set in motion in the listener, will go on until the listener dies", as Frank claims. All the pieces of the Wiener Process are through-composed Csound scores and were coded over the course of 4 years in 3 computer languages: Forth, Coldfusion and Python. Frank specifically designed a "Studio B" which is very small, has no windows and consists of a library of historic books on computer science and vintage IBM and SUN machines running a "supermodern" command-line-only Linux Operation System. All pieces were written in this studio located at the Lodge For Utopian Science in View Park, California, with the exception of one: "Rnd9c4-2_Grand_Canyon opus 490" was composed at the Maswik Lodge in Grand Canyon Village, Arizona.
+</p>
+<p>
+With all these constraints in place Frank created a singular, sprawling work that transcends its preconditions. This is music without roots, although it shares affinities with the works of certain computer music and generative music pioneers.
+</p>
+<p>
+"The Wiener Process draws heavily on the uniform random distribution and borrows notions from quantum mechanics and psychoacoustics", Frank acknowledges "I simply used the Scottish philosopher David Hume's skepticism on causality as a starting point and ended up with the Austrian physicist and philosopher Ludwig Boltzmann's hypothesized self aware entity."
+</p>
+<p>
+Yes, simple as that, each piece is a slice of infinity, without beginning, development, or end. However, the 24-hour sequence follows a clearly-drawn listening curve that starts with silence (honestly, "Pink0 (Urgestalt) opus 76" will amount to literally nothing for some listeners as its frequency content is all above 10,000Hz), goes through stages of white noise and pink noise, then crosses a tonal zone of increasingly-active stochastic melodies. By then, we are halfway through the set. Then, melodic activity loses momentum, and the music gradually enters denser harmonic planes - "rnd9e_Million opus 499" passes by at the average rate of 277 events per second(!) - goes back to undifferentiated sounds, until the 24th hour, which consists of a delicate field recording piece entitled "Hyperacusis Man opus 82".
+</p>
+<p>
+This unique project is designed for low-volume headphone listening, can co-exist with any other music or sound environment or simply function as an auditory 24 hour clock. "The effect of psychostochastics is synaesthetic and not dependent on the volume for the listeners nor their attention" Frank promises.
+</p>
+<p>
+Baskaru releases Frank Rothkamm's Wiener Process as a datastream, download and as a set of 24 CDs housed in a hand-made Lucite double box. The 24 CD box set edition is limited to 24 box sets. On each CD of the box set a 24 hour clock is printed with each CD having one different number missing, the absence indicates which hour it represents.
+</p>
+-->
+
+<p>
+Heidegger
+</p>
+<p><em>Am ärgsten sind wir jedoch der Technik ausgeliefert, wenn wir sie als etwas 
+Neutrales betrachten; denn diese Vorstellung, der man heute besonders gern huldigt,
+macht uns vollends blind gegen das Wesen der Technik.</em>[1]</p>
+
+<!--
+<p>
+ 23 missions of california
+</p>
+-->
+
+<p>Heraclitus</p>
+
+<p><em>24. Time is a child moving counters in a game; the royal power is a child's.</em>(52)</p>
+
+<p>David Hume</p>
+
+<p><i>All reasonings concerning matter of fact seem to be founded on the relation of cause and effect.[2]</i></p>
+
+<p><i>The bread, which I formerly eat, nourished me; that is, a body of such sensible qualities was, at that time, endued with such secret powers: but does it follow, that other bread must also nourish me at another time, and that like sensible qualities must always be attended with like secret powers?[2]</i>
+
+<p>Secret Powers are at the core of Hume's Inquiry into the Human Understanding. For causality is only a figment of the understanding, a connection we make between things that happen after another in time and not attributable to the things themselves. In his sceptical criticism of all the things that we hold true and self-evident Hume deliberately chooses to name a hidden connection, at least hidden to us, a secret power. It is something that acts at a distance, an imperceptible force that makes it so. Understanding the inquiry formally, Hume postulates that if we look at the world of continuous motion at a lowest possible frame rate, if we were to slow down the world of experience to a single moment, if we were to stop the continuous world of sense perception, we end up with a picture, the world picture. Hume plays this mind experiment by fabricating an instant of time, the world picture, the atom of time/experience and reduces all human experience to a basic binary pair:  the world picture of the past (0) and the world picture of the present (1) . It is clear that this series can indefinitely repeated, as soon as we make a world picture of the present it becomes a world picture of the past, by the mere fact that time never stands still. So in simple terms this would be n = n+1, the series that defines natural numbers. But Hume's aim with this sequence was to demonstrate that if we look at each picture all by itself, there is nothing in it that suggests that one will turn into the other. There are many deductions we can make by working out the relations between elements, but because all motion is removed, there is no telling what will happen to the world picture or that there even is another. Things in and by themselves, without human perception and understanding have no time or space. This cardinal argument would later wake up Kant, as he put this: <em> "I freely admit that it was the remembrance of David Hume which, many years ago, first interrupted my dogmatic slumber and gave my investigations in the field of speculative philosophy a completely different direction."[5] </em> Without time there would be no causality, or causality is not knowable without time. If this sound all too much like Xeno turtle, well, here goes that mind experiment from the dawn of philosophy:If we look at the world as a series of moments in time, and we certainly can understand this, nothing in a world picture implies that there is motion at all. There are only relations between immovable things. It is the atomisation of time, the reduction of experience to a series of world pictures. The smallest possible frame for experience is the moment everything stands still, the world picture. Within this we can clearly deduce many relationships, but not the existence of another.</p>
+<p>
+What could this possible atomization of time be, this world picture where everything stands still? Origins of Planck time.
+</p>
+<p>
+The world picture, once established, has no time and therefore can not cause or be the cause of anything.  
+
+<p><em>"I shall venture to affirm, as a general proposition, which admits of no exception, that the knowledge of this relation is not, in any instance, attained by reasonings a priori, but arises entirely from experience, when we find that any particular objects are constantly coinjoined with each other."[2]</em></p>
+
+<p>What happens to this relation if the experience has nothing in it that is constantly conjoined? How do we experience the absence of cause and effect, of any kind of conjointment? Hume clearly shows that cause and effect arise from experience which is made up of a series of world pictures who in and by themselves have no time. Yet, the understanding of this does require time, but a time which is not necessarily sequential. This random time has only relationships that are within its own moment, it does not refer back to past or anticipates a future. The time of the world picture is random. It is still a series of countable numbers but in no particular order. </p> 
+
+<p>Uniform Random Distribution: In a series of events where any event follows any other with equal probability what do we experience? Boltzmann and the boxed universe</p>
+
+<p> If music is events organized in time, what is music that has no time or space, or an infinite amount of time or space. What does it mean to listen to music if there is no causality between events? </p>
+
+<p>We will establish a pattern. Is this “we” the understanding a priori? If the conditions for experience are time and space, what do we designate as time and space? What pattern will be imposed, what causality recognized if there is none? At what point becomes an event something in space or something in time? </p> 
+
+<p>Envelope Algorithm: a time axis independent Gaussian Process</p>
+
+<p><em>In mathematics, the Wiener process is a continuous-time stochastic process named in honor of Norbert Wiener. It is often called standard Brownian motion, after Robert Brown. … In applied mathematics, the Wiener process is used to represent the integral of a Gaussian white noise process, and so is useful as a model of … unknown forces in control theory.</em>[4]</p> 
+
+<p>This distinguishes the Wiener process from the Random Walk, which is a discrete stochastic process. In computation the Wiener process is only approximated and the Random Walk converges on the Wiener Process by the Central Limit Theorem. 
+</p>
+<p>
+The human ear can nominally hear sounds in the range 20 Hz (0.02 kHz) to 20,000 Hz (20 kHz). The upper limit tends to decrease with age; most adults are unable to hear above 16 kHz.[6]
+</p>
+<p>Human perception is continuous but shows discrete properties in frequency hearing.</p> 
+<p>
+Algorithm and Authorship: Who creates in the Random Process? 
+</p>
+<p> Observation is Creation: Schroedinger's Cat and the Random Stream</p>
+<p>
+The Wiener Process asks:<br> 
+What is spacetime?<br> 
+Let's assume that the 2nd law of thermodynamics is a gravitational effect towards equilibrium, towards the state of entropy. As soon as there is mass there is also momentum, as soon as there is something rather than nothing, it expands and is as such not a uniform distribution but strives toward it. Could the rate of expansion be a part of a movement within an equilibrium of an enormous scale? Can what we see as expansion just be part of a uniform equilibrium whose magnitude we don't comprehend? Furthermore, does the uniform distribution have any meaning if the elements are so far apart that they don't "see" each other, if the objects are so far apart that there is no gravitational effect? Would the object have any space or time at all? Will spacetime-less objects still be distributed? Or to ask with Leibniz: <em>Les monades n'ont point de fenêtres par lesquelles quelque chose y puisse entrer ou sortir</em>[3] thus: Do monads that have no windows still see everything?
+</p>
+<p>
+What is embedding?
+</p>
+<p>
+The Wiener Process structures time like a 24 hour clock. It divides the day into 24 equal sized portions, it tells time to the granularity of the hour. The Wiener Process is 24 moments that are 1 hour apart. The hour itself has no time. Statistically, every minute in each hour is identical, shows the same random distribution, than the next. In a way, each hour is a stretched out moment. As we usually perceive only moment after moment, say one per second, the moment in and by itself has no time, much like the mathematical point knows no dimension. Each moment is so short that within it we do not perceive a before or after. Our threshold of perception is the moment and we are unable distinguish events within it. They happened "now" or "at the same time". We are only capable of perceiving time as the space or difference between moments. Even if each moment appears identical to the next, and there are no absolutely identical moments, there is space in between them to make them 2 moments instead of one. Each hour of the Wiener Process opens up the previously imperceptible worlds of the moment, it breaks open the former atoms of (time) perception. We have a here is rescaled or restructured time. Similar to magnification of under a microscope that lets us see all the way to subatomic levels. The world of subatomic particles is described with Quantum Mechanics, which is part of physics. The laws of physics have no time - let's ignore the 2nd law of thermodynamics for a moment - but mostly describe the properties of space through differentiation. Time has an arrow, the laws of at least Newton's physics do not. Our current laws of everything do not have an arrow of time. They work forward in time the same as they work backwards. To the composer of music this can be frustrating. <br>The world of quantum mechanics is not made up of laws in the classical sense of certain causality, but of probabilities. Right now we live in 2 worlds simultaneously: The world of the cosmos, that is of everything, and the world beyond everything, which is the world of the super small, the world of subatomic particles and black holes.         
+</p>
+<p>
+There are 2 remarkable features in the 24 hour Wiener Process: Each hour shows no signs of development from state A to state B - it remains in 1 state -  and the transitions between each hour are abrupt - they appear instantaneous. So the only change in state is the one from one hour to the next and this change is not a transition with cause and effect, but an instantenous shift from one state to the next. The hour is a quantum state. 
+</p>
+<p>
+what we hear depends on what kind of audio environment we are in.[7]
+</p>
+<p>
+signal masking: Any event in auditory space can be masked by an event of equal amplitude and frequency. The most effective masking is white bandpass filtered to frequency around the event frequency. 200Hz 
+<br>
+In Csound the way to generate a uniform distribution at sample rate is with amplitude k1 is
+<br>
+asig randi k1, sr
+<br>
+</p>
+<p>
+introduction to psycho-stochastics
+</p>
+How is PS possible?
+<p>
+the science of psycho-stochastics deals with experiences/perceptions a posteriori a priori exposed to random distribution.
+</p>
+<p>
+The Wiener Process as a computational artifact of psycho-stochastics implements the Entscheidungsproblem[8] as it applies to human experience and understanding. It formalizes the proposition that entropy, the end game of all possible combinations within a finite set, can be experienced as a stochastic process.  
+</p>
+<p>
+This threshold of hearing is very relative to the environment we find ourselves in. The quieter it is the more sensitive the hearing becomes. Therefore if there is no sound environment at all, we start to hear the sound of our own body. As such, we always hear these sounds, but are usually never aware of them. Unlike the eye, the ears are never closed, so the only mechanism of shutting out sounds is not to pay any attention to them. 
+</p>
+<p>
+Music is usually used to cover the sound environment, to replace the existing multitude of intentional and unintentional acoustic phenomena with an uninterrupted series of evenly spaced periodic tones and aperiodic pulses that blanket everything. The loudness of the uninterrupted series in relation to the environment determines the aspect of its power. Amplified music is now pervasive. Consumed music is always better loud. The loudest sound get our attention. We can only follow one task at a time, we round-robin attention, splice it up into time slots that pay attention to one task. Just the speed of changing from one task to the next gives it the appearance of multi-tasking, of paying attention to different tasks at the same time. Music asserts always the loudest part of the environment and therefore commands our attention. Yet all the multitude of nerve perceptions still exists, the sounds of everything else is still present and, if not masked, still perceptible. Because the ear like the brain and the heart, never shuts off  everything is still processed all the time. To deal with the information density the brain is capable of processing 300kb/s  Everything else is beyond our resolution of understanding, all perception throttled through this gate.  There may be a world in higher resolution out there but we will never know as the understanding is conditioned by 300kb/s. The world that is real to us is always only conditioned thru our perception and always limited by our understanding, our ability to process information at a certain rate. The heart beats at an average rate of 80 times a minute. All of our perception underlies this inner perception of our pulse.  But I getting ahead of myself because we will talk about time later. The brains inability to multi task, or its particular way of switching from on task to next in a round robin fashion, is what makes music. We pay attention only to the loudest thing in the environment and follow the perceptions. Examples concert/cough  club/ringing. 
+</p>
+<p>
+j's animal model of Tinnitus. limbic system and signals. Habituation.
+</p>
+
+<p>
+[0]<a href="http://isites.harvard.edu/fs/docs/icb.topic1308144.files/February%203/Heidegger%20-%20Die%20Frage%20nach%20der%20Technik.pdf">Heidegger</a><br>
+[2]<a href="http://www.gutenberg.org/files/9662/9662-h/9662-h.htm">David Hume - Inquiry Concerning Human Understanding</a> <br>
+[3]<a href="http://www.philo5.com/Les%20philosophes%20Textes/Leibniz_MonadeSansFenetre.htm">Leibniz</a><br>
+[4]<a href="http://en.wikipedia.org/wiki/Wiener_process">Wiener Process</a>  <br>
+[5]Immanuel Kant - Prolegomena  <br>
+[6]<a href="http://en.wikipedia.org/wiki/Psychoacoustics">Psychoacoustics</a><br>
+[7]<a href="https://ccrma.stanford.edu/~bosse/proj/node9.html"> (Bosse Lincoln)</a><br>
+[8]<a href="http://plato.stanford.edu/entries/computability/">Entscheidungsproblem</a>
+</p>
+<p>
+1. Tinnitus<br>
+Heraclitus<br>
+Zeno<br>
+Plato<br>
+al-Khwārizmī<br>
+Bernoulli<br>
+Leibniz<br>
+Isaac Newton (reverseability)<br>
+David Hume<br>
+Immanual Kant (Free Will)<br>
+Max Planck<br>
+Sadi Carnot (2nd law of thermodynamics)<br>
+Gustav Fechner (psychophysics)<br>
+Heinrich Boltzmann <br>
+Albert Einstein<br>
+Werner Heisenberg<br>
+Heschl's gyri (Auditory cortex)<br>
+Norbert Wiener<br>
+Donald Knuth<br>
+Max Matthews<br>
+Chuck Moore<br>
+Karlheinz Stockhausen (long time)<br>
+Luc Ferrari (field rec)<br>
+Iannis Xenakis<br>
+John Cage (substractive organisation)<br>
+24. Jastreboff<br>
+</P>
+<p>Thoughts after the New York workshops performances:<br>
+
+WP is made of 6 hour units, which can be performed in one evening (from 18.00-0.00 ) over 4 days, the "Wiener Fest". Each of these 4 units has the same structure: 5 pieces (that form a development) + 1 (surprise/change) end piece. To realize this a space with 2 separate rooms is required: 1. social space w/ bar and 2. experience place w/ sound system. The bar or entry space has no chairs. The experience space has very comfortable chairs (that I'm designing right now). On the top of every hour I'll give a 5 minute micro lecture on the following piece, during this time people can get seated into the chairs. Doors close. Then a 50 minute version of each WP will be played. No ins and outs during this time. At 5 minutes to the hour the piece ends, doors open and people have time to get up, leave, get a drink, go to the bathroom, etc.... Then it starts all over again with the next piece. People can hang out in the bar/entry space and I will be there and available for anyone.</p>
+<p>
+Thoughts after the 3/15/2015 release:<br>
+We fought hard so the Wiener Process would not be broken up. It is only available as the full 24 CD set, we have the secret link which gives access to real-time datastream where you can not fast forward or rewind but have to catch the WP while it goes through its 24 hour cycle. It makes no sense to listen to only a few minutes. There is a 10 min excerpt on soundcloud, not good. In the same way the performance of the WP should not be broken up. So it <em>must</em> a 24 hour performance, starting of course at 0.00 or midnight and going on until the next day midnight. Format is as described in previous thought: 5 min micro-lecture, 50 min piece, 5 min break. But I can't stay awake this long, but have the opportunity to take a 50 min nap each hour. This way it is an endurance performance and ties in with performance art works of the 70s.  
+
+</p>
+<p>
+Thoughts after the Desert house journey:<br>
+It seems obvious that the performance, the staging, the experience of the WP is about gravity. Both in its assumption that time is the effect of gravity and in the experience of the listener to be aware of one's gravity and the relative position we have to the center of gravity here on earth. There are two extreme positions in between the center of self, arguably our head, fluctuates. If we stand up straight, with our head in the default position as our eyes scan the horizon, we are in a 90 degree angle torwards the center of gravity and our self is in parallel with the earth's flat surface. The eyes, ears and mouth point to a center of attention which is in the distance.. At the other end is the 180 degree position where we sleep. Very few humans can sleep not laying down. There we are with our head pointing upwards towards the night sky and eventually our eyes closed. We usually loose consciousness in this position and we usually regain it after we wake up.  But as most of us can give testimony to waking is not the same than getting up. It seems very difficult at times, even impossible, but we usually manage after a great deal of struggle. The 2 extremes position that we hold towards the center of gravity make our nights and daytime activity very different. If we look at this a bit closer, we soon discover that there are more than 2 positions. The sitting position can vary. The center of attention can shift lower towards the desk, tilting downwards up to 45 degrees. We can lean back and look upwards to a screen. So we shift our head towards the center of attention. The changes may be minute, but they do occur, especially when we walk and look at device screen and when we sit and watch a movie. In the WP the position of the head towards the center of gravity changes for each hour. It is conceivable to compose for listeners that are suspended upside down, but the WP is not this composition. Here it shifts between 90 degrees and 180 degress, between awake and asleep.
+</p>
+<p> 
+As an experience in space, the WP's closest relative on this Earth is the Planetarium. Audience is already seated at an angle, facing upwards. Lighting can be minimized. Headphones can be added.
+</p>
+<p>
+24
+</p>
+<p>
+700 word chapters / 2400 char seqments / 5 minute micro-lectures for each WP
+</p>
+

@@ -1,0 +1,19 @@
+# credentials (lives one dir above web root, never commit)
+dbcon.php
+**/dbcon.php
+# editor / OS junk
+*.swp
+*~
+*.log
+Thumbs.db
+.DS_Store
+*.swm
+*.swo
+*.swn
+*.bak
+# artwork media — kept on server, not tracked in git (repo was 834MB)
+# covers all case variants via character classes
+*.[mM][pP]3
+*.[jJ][pP][gG]
+*.[jJ][pP][eE][gG]
+*.[pP][dD][fF]

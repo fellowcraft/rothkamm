@@ -1,0 +1,45 @@
+<pre>// psychostochastics : SuperCollider 3.10
+
+(
+SynthDef.new(\sinewave, {
+	arg freq=100, atk=0.01, rel=1, amp=1, index=800, panstart=0, panend=0,
+	fxmix = 0.5, matk=1,   mrel=0.01;
+	var sig, env, panenv, modenv;
+	modenv = EnvGen.kr(Env([matk,mrel]));
+	sig = SinOsc.ar(freq + (SinOsc.ar(freq*4, mul:index)*modenv));
+	env = EnvGen.kr(Env([0,0.9,0],[atk,rel],[1.0,-1.0]),doneAction:2);
+	panenv = EnvGen.kr(Env([panstart,panend],[atk+rel]));
+	sig = Pan2.ar(sig,panenv,amp);
+	Out.ar(0, sig*env);
+	Out.ar(2, sig*env*fxmix); // FX Send
+}).add
+)
+
+(
+SynthDef.new(\reverb, {
+	var sig;
+	sig = FreeVerb2.ar(In.ar(2),In.ar(3),1,0.9,0.1);
+	Out.ar(0,sig);
+}).add
+)
+
+(
+x = Synth.new(\reverb);
+
+~p = 24.do{
+    Pbind(
+	\instrument, \sinewave,
+	\freq, Pgauss(250,100,inf),
+	\dur,  Pwhite(0.1,12.0,inf),
+	\atk,  Pexprand(0.001,0.2,inf),
+	\rel,  Pwhite(0.001,0.2,inf),
+	\matk,  Pwhite(0.001,0.2,inf),
+	\mrel,  Pwhite(0.001,0.2,inf),
+	\panstart,  Pwhite(-1,1,inf),
+	\panend,  Pwhite(-1,1,inf),
+	\index,Pexprand(2,35000,inf),
+	\fxmix,Pwhite(0,0.05),
+).play
+}
+)
+</pre>

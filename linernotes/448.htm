@@ -1,0 +1,74 @@
+The ‘Last Post’ ends the publication of my complete works. It took over 20 months to do that because I kept making more albums at unprecedented speeds, releasing, towards the end, 1 album per day. With this ‘Last Post’ I am for the first time in my life caught up: all 690 works are now published on 152 albums.
+<br><br>
+That’s all, folks. No more where that came from. There is no work-in-progress. I’m done and the glass is not half full, it is empty. 
+<br><br>
+As you figured out by now, I am a fake composer. 
+<br><br>
+Fake composer because I let algorithms or spirits do all the work and most will agree that neither are real authors in the sense we traditionally understand authorship. 
+<br><br>
+Algorithms as discrete mathematical procedures were arguably used to produce music since music began. Counting and time are interrelated, but as opposed to space, counting of time is not visual. There is no Cartesian geometry of music, the closest we have today are Minkowski diagrams or spacetime diagrams. These come close to how I perceive sound via synaesthesia, these are the “shapes” I constantly “see” whenever I encounter music. They can be mathematically described, and in a way generated, via probability theory, hence I termed ‘psycho-stochastics’ to do just that: to research the intersection of discrete mathematical probability theory and its psychological reception or creation, depending on what side you take in the history of philosophy.   
+<br><br>
+Spirit Communication is related to improvisation and is only esoterically embedded in the Western tradition. Lacking any scientific evidence, it is not well researched. The terminology dates back to the 19th century and the movements of ‘spiritism’ and it’s various exploitations in spirit photography and disembodied voices, all of which have been found out to be faked; made by human rather than natural phenomena. From experience however, I have found that this is the closest we have to describe how I compose: Like in Andre Breton’s Automatic Writing, the author is merely a highly technically skilled amanuensis of creative forces.
+<br><br>
+As a fake composer, I have no style or personality and I cannot repeat the same work twice because ‘I’ did not make it. In the traditional sense I do not own or express anything. I did my fair share of commercial work and for this summoned up the spirits that would let me make a lot of money. This worked, but rarely. Until I found the internet and my first client outside the music industry: the ‘Last Post’, a pet sanctuary in upstate New York.
+<br><br>
+In 1998 I was living in Williamsburg, Brooklyn. 2 years prior, I spotted a cat in front of my doorstep during a blizzard. The cat was very friendly towards me as I had no experience interacting with the species. I opened the front door and the cat immediately went in and walked to the second floor. Our apartment was on the second floor. I walked up, opened the apartment door and the cat walked in and made itself comfortable on the floor right in my studio. I went out and got some cat food. By the time Nina came home from the Center for Book Arts in Manhattan, the cat was sound asleep.
+<br><br>
+Nina called it ‘Kitty’. For next 2 years the cat would live with us, even though at night ‘Kitty’ was free to go outside to pursue the life of a tom-cat. He would hang out in the studio by day, and bring me birds and mice as gifts.
+<br><br>
+Then in 1998 we moved to Los Angeles. What to do with ‘Kitty’? There was a cat sanctuary called ‘The Last Post’ in Upstate New York founded by Pegeen Fitzgerald, a “radio personality”. So I designed, programmed and hosted their first website. ‘Kitty’ was safe to retire in style and thanks to Russell Maret, we drove ‘Kitty’ upstate. 
+<br><br>
+My parting gift to you is a simple computer program that will keep on giving. It is easy to understand and modify to suit your needs. It will compose scores for you as long as you wish or longer. 
+<br><br>
+It honors Lejaren Hiller and Leonard Isaacson at the very inception of algorithmic composition in Urbana-Champaign in the 1950s.
+<br><br> 
+I have included these 2 operatic pieces, ideally played in the future by non-fake humans, so you can explore the new world of the ‘Last Post’ in style.  
+<br><br>
+This is the end, beautiful friend?
+<br><br>
+<pre>
+import random
+import numpy as np
+from midiutil.MidiFile import MIDIFile
+
+MyMIDI = MIDIFile(3)
+
+track = 0  
+time  = 0
+
+maxPitch   = 67
+minPitch   = 55
+
+startPitch = (maxPitch-minPitch) /2 + minPitch 
+
+Major = np.array([2,4,5,7,9,11]) 
+Minor = np.array([2,3,5,7,9,11])
+
+MyMIDI.addTempo(track,time,120)
+
+for i in range(1,1000):
+    channel = 0
+    durs  =                           [ 0.25,   0.5] 
+    dur   = np.random.choice(durs,  p=[ 0.25  , 0.75 ])
+    if dur == 0.5:
+        rep=1 
+    else: 
+        rep=2	
+    for i in range(rep):
+        steps =                           [  0,  -1,   1,  -2,   2,  -5,   5]
+        step  = np.random.choice(steps, p=[0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.1])
+        startPitch = startPitch + step  
+        if startPitch < minPitch or startPitch > maxPitch: 
+	    startPitch = startPitch + step * -1
+        volume = random.randint(80,100)
+        track  = random.randint(0,2)
+        channel = track
+        MyMIDI.addNote(track,channel,startPitch,time,dur,volume)
+        time = time + dur
+
+with open("ac2.mid", 'wb') as binfile:
+    MyMIDI.writeFile(binfile)
+ </pre>
+
+
+

@@ -1,0 +1,135 @@
+In 1801, Thomas Bruce, 7th Earl of Elgin, went to Athens and removed parts of the "upper echelon" of the temple of the Parthenon and had them brought back to England. He did obtain a permit for doing so, issued by the Sublime Porte. As a French word, it refers to the central government of the Ottoman Empire. The Acropolis of Athens at that time was an active military fort and the firman for entering obtained from the Sultan never materialized when the British Parliament questioned Bruce in 1816. What he produced was a document claimed to be an English translation of an Italian copy made at the time. Nevertheless, the House of Commons offered £35,000 to the Earl of Elgin and the Elgin Marbles were deposited in the British Museum, where they are to this day. It is hard to say what that money is worth today. An article published in "The Telegraph" in 2014 speculates that "The matchmaking heroine Emma Woodhouse, on the other hand, inherits a lump sum of £30,000 in Austen's novel, Emma, written in 1815. Today, that's the equivalent of a £1.9m windfall." It was clear to everyone that Bruce merely paid for the cost of their excavation and removal, which is estimated by the Encyclopædia Britannica to be at least £70,000. Or did he? English travel writer Edward Daniel Clarke, an eyewitness, wrote that the Disdar, the Ottoman official on the scene, attempted to stop the removal of the metopes but was bribed to allow it to continue. As Ambassador Extraordinaire Bruce was paid £6,600 per year. It is clear that all these figures do not add up.
+<br><br>
+Thomas Bruce was born in Broomhall, Fife in Scotland and died in Paris, France. He was British ambassador to the Ottoman Empire between 1799 and 1803 and therefore connected to the Sublime Porte in what is now Turkey. What prompted him to remove all these artifacts? We know that he piled them up in his Broomhall mansion in Scotland, perhaps to be used as part of a rebuilding of the estates. However, this all proved to be his undoing. He and his wife Mary, as the only daughter the inheritor of the Nisbet fortunes, made the decision to return to England by traveling through France. As England declared war on France, they were arrested and imprisoned by the First Consul of France along with all the other 10,000 British travelers, as Napoleon Bonaparte boasted. French records revealed later show the number to be actually 1,181. It took however 3 years, until 1806, before Bruce could return to England. During this time his wife Mary fell in love with his fellow MP Robert Ferguson, who officially only worked for Bruce's release in Paris, the city of love. Back in England, he had no wife (and her prospect of inheritance), but all the children and these "Elgin Marbles" and he tried to sell them off. Nobody really wanted them. Why? For once they were in really bad shape and incomplete. They were fragments and therefore they looked like what we call today zombies or mutants. Arms were missing, legs, heads, and all other body parts. It took another 10 years and then he got less than half of what he spent on them. By that time he was already living on the continent.
+<br><br>
+In 2015 I entered Room 18 of the British Museum without any special permit but with a Zoom H2n audio recorder hidden in my jacket. I proceeded to walk in front of every part of the Elgin Marbles, starting on one side of the hall and making a complete walk about, briefly stopping in front of every piece. I tried not to think about anything and merely observed. This took 2344 seconds. In 2016 back in L.A., I wrote a Python program that produced a Csound program. This “fr_02.py” took 10,000 random samples from the London recording, each between 0.6 and 4 seconds long, reverberated them with a randomly “colored” frequency response, randomly flipped their stereo output and randomly placed them over the course of 3600 seconds. This is the hour of Elgin Marbles.
+
+<!---
+<pre>
+import random
+import datetime
+import os
+
+scriptname = os.path.basename(__file__)
+
+orchestra = '''
+
+sr = 44100
+;kr =  4410
+ksmps = 10
+nchnls = 2
+galeft init 0
+garight init 0
+
+instr 1
+idur             = p3
+iamp             = ampdb(p4)
+irevSend          = p5
+iprnd                      = p6
+
+kAmpEnv linseg  0, 0.01, iamp, idur-0.04, iamp, 0.03, 0
+
+aAmpEnv interp  kAmpEnv
+
+a3,a4   diskin2 "/sdb/Wave/WorksR/057500.wav", 1, iprnd, 1, 0
+a1    = a3*aAmpEnv
+a2    = a4*aAmpEnv 
+
+a1C   vcomb   a1, kAmpEnv, irevSend, 0.1        
+a2C   vcomb   a2, kAmpEnv, irevSend, 0.1        
+
+i1 = birnd(1)
+if (i1 > 0) then 
+outs a1C, a2C
+else
+outs a2C, a1C
+endif   
+
+galeft    =         galeft  +  a1C     * irevSend
+garight   =         garight +  a2C     * irevSend
+
+endin
+
+instr 99                           ; global reverb
+
+irvbtime    =         0.2
+aleft,  aleft  reverbsc  galeft,  galeft, irvbtime, 18000, sr, 0.8, 1 
+aright, aright reverbsc  garight, garight,irvbtime, 18000, sr, 0.8, 1 
+outs   aleft,aright              
+galeft    =    0
+garight   =    0 
+
+endin 
+
+'''         
+  
+# score 
+start          = 0
+duration       = 0
+events        = 10000   
+maxdb         = 0
+mindb         = -24 
+total          = 3600
+revSend     = 0.0005
+revTime     = 0.85
+prnd           = 2340 # minutes of wav track 
+
+def RndEnvelope():
+    global start
+    start = random.uniform(0,total)
+    global duration
+    duration = random.triangular(0.6,4,0.9)
+
+def GenerateEnvelope():
+    RndEnvelope()     
+    while start + duration > total: 
+        RndEnvelope()
+
+def RndDb():          return random.uniform(mindb,maxdb)
+
+def RndrevSend():     return random.uniform(revSend,0.2)
+
+def RndPitch():       return random.uniform(1,prnd)
+
+scoreHeader = ""
+scoreHeader +=  ("; Reverb \n"
+"i99     0 " + `total+revTime*1` + " " + `revTime` + "\n \n \n")
+
+
+scoreData = ""
+
+for i in range(events):
+    GenerateEnvelope()
+    scoreData += "i1 " + \
+    " %4.3f" % start + \
+    " %4.3f" % duration + \
+    " %4.3f" % RndDb() + \
+    " %4.3f" % RndrevSend() + \
+    " %4.3f" % RndPitch() + "\n" 
+
+csd = ""
+
+csd += ("<CsoundSynthesizer> \n" 
+"<CsOptions> \n"
+"</CsOptions> \n"
+"<CsInstruments> \n" 
++ orchestra +
+"</CsInstruments> \n"
+"<CsScore> \n" 
++ scoreHeader
++ scoreData +
+"e \n"
+"</CsScore> \n"
+"</CsoundSynthesizer>")
+
+scorename = scriptname + ".csd"
+i = 0
+while os.path.isfile(scorename):
+    i = i + 1
+    scorename = scriptname + "." + `i` + ".csd"
+
+f = open(scorename, 'w')
+f.write(csd)
+print scorename
+</pre>
+--->

@@ -1,0 +1,210 @@
+Module 6 3 200 0 2 mvclpf24 Mvclpf-3
+ColorP 0 0 3 12 250 200 50 180 180 180
+ColorP 1 0 3 26 250 200 50 180 180 180
+FSlider 3 0 -65536 0 -983040 163840 1
+FSlider 3 1 57408 0 -81920 81920 1
+FSlider 3 2 56343 0 0 163840 1
+FSlider 3 3 5676 0 0 16384 1
+FSlider 3 4 8127 0 0 16384 1
+FSlider 3 5 65610 0 -245760 245760 1
+FSMIDI 3 1 10 0 80
+FSMIDI 3 3 10 0 70
+ConfigDialog 0 298 105 452 401
+Module 1 4 280 200 0 0
+ColorP 1 1 4 14 250 200 50 180 180 180
+FSlider 4 0 0 0 0 16384 1
+FSlider 4 1 1638 0 1638 14745 1
+FSlider 4 2 0 0 0 16384 1
+FSlider 4 3 0 0 0 102940 1
+FSlider 4 4 0 0 0 163840 1
+FSlider 4 5 0 0 0 163840 1
+ISlider 4 0 5 1
+ISlider 4 1 1 1
+ISlider 4 2 1 1
+ComboBox 4 0 0 1
+FSMIDI 4 4 10 0 83
+ConfigDialog 0 340 372 236 290
+Module 7 5 1120 40 0 0
+ColorP 0 0 5 25 250 200 50 180 180 180
+ColorP 1 1 5 25 250 200 50 180 180 180
+FSlider 5 0 2697 0 0 16384 1
+FSlider 5 1 8192 0 0 16384 1
+FSlider 5 2 8192 0 0 16384 1
+ComboBox 5 0 0 1
+ConfigDialog 0 803 129 154 230
+Module 10 9 20 120 0 0
+FSlider 9 0 0 0 -16384 16384 1
+ISlider 9 0 24 1
+ComboBox 9 0 0 1
+ConfigDialog 0 56 172 200 120
+Module 1 10 500 200 0 0
+ColorP 1 2 10 14 250 200 50 180 180 180
+FSlider 10 0 0 0 0 16384 1
+FSlider 10 1 8192 0 1638 14745 1
+FSlider 10 2 0 0 0 16384 1
+FSlider 10 3 0 0 0 102940 1
+FSlider 10 4 0 0 0 163840 1
+FSlider 10 5 0 0 0 163840 1
+ISlider 10 0 5 1
+ISlider 10 1 1 1
+ISlider 10 2 1 1
+ComboBox 10 0 0 1
+FSMIDI 10 0 10 0 81
+FSMIDI 10 4 10 0 83
+ConfigDialog 0 564 288 214 290
+Module 1 11 400 200 0 0
+ColorP 1 3 11 14 250 200 50 180 180 180
+FSlider 11 0 0 0 0 16384 1
+FSlider 11 1 8000 0 1638 14745 1
+FSlider 11 2 0 0 0 16384 1
+FSlider 11 3 0 0 0 102940 1
+FSlider 11 4 0 0 0 163840 1
+FSlider 11 5 0 0 0 163840 1
+ISlider 11 0 5 1
+ISlider 11 1 1 1
+ISlider 11 2 1 1
+ComboBox 11 0 0 1
+FSMIDI 11 0 10 0 82
+FSMIDI 11 4 10 0 83
+ConfigDialog 0 461 327 214 290
+Module 8 12 660 280 4 0
+ColorP 0 2 12 4 250 200 50 180 180 180
+ColorP 1 2 12 10 250 200 50 180 180 180
+ColorP 2 2 12 11 250 200 50 180 180 180
+ColorP 3 0 12 17 250 200 50 180 180 180
+FSlider 12 0 6407 0 0 32768 1
+FSlider 12 1 32768 0 0 32768 1
+FSlider 12 2 32768 0 0 32768 1
+FSlider 12 3 32768 0 0 32768 1
+FSlider 12 4 32768 0 0 32768 1
+FSMIDI 12 2 10 0 71
+FSMIDI 12 3 10 0 72
+ConfigDialog 1 712 421 200 280
+Module 42 14 60 280 4 0
+ColorP 0 0 14 24 250 200 50 180 180 180
+FSlider 14 0 -144007 1 -150902 -40582 1
+FSlider 14 1 -68377 1 -75451 0 1
+FSlider 14 2 7309 1 -75451 37725 1
+FSlider 14 3 -98500 1 -150902 -40582 1
+FSlider 14 4 -43384 1 -75451 0 1
+FSlider 14 5 26407 1 -75451 37725 1
+ComboBox 14 0 2 1
+ComboBox 14 1 1 1
+CheckBox 14 0 0 1
+ConfigDialog 0 775 89 203 431
+Module 11 15 620 100 0 0
+ColorP 0 1 15 24 250 200 50 180 180 180
+ColorP 1 1 15 24 250 200 50 180 180 180
+FSlider 15 0 0 0 0 16384 1
+FSlider 15 1 96 0 0 16384 1
+FSlider 15 2 0 0 0 16384 1
+FSlider 15 3 1533 0 0 16384 1
+FSlider 15 4 0 0 0 16384 1
+FSlider 15 5 3928 0 0 16384 1
+FSlider 15 6 16815 0 1638 163840 1
+ConfigDialog 1 978 241 214 420
+Module 14 17 220 440 0 0
+FSlider 17 0 82957 0 0 163840 1
+FSlider 17 1 10162 0 0 16384 1
+ConfigDialog 0 365 648 100 115
+Module 15 19 0 20 0 0
+ColorP 0 1 19 9 250 200 50 180 180 180
+FSlider 19 0 915 0 0 163840 1
+FSlider 19 1 915 0 0 163840 1
+ConfigDialog 0 727 92 200 115
+Module 3 21 640 460 0 0
+FSlider 21 0 12727 1 -150902 75451 1
+FSlider 21 1 0 0 0 102940 1
+ConfigDialog 0 754 174 113 154
+Module 14 22 20 440 0 0
+FSlider 22 0 0 0 0 163840 1
+FSlider 22 1 2709 0 0 16384 1
+FSMIDI 22 0 10 0 84
+FSMIDI 22 1 10 0 74
+ConfigDialog 0 755 481 200 154
+Module 16 23 799 551 0 0
+ComboBox 23 0 0 1
+ConfigDialog 0 0 0 100 30
+Module 31 24 120 560 No_Scale_loaded
+ColorP 0 2 24 22 250 200 50 180 180 180
+ISlider 24 0 -13 1
+ISMIDI 24 0 10 0 73
+ConfigDialog 0 352 692 200 148
+Module 37 25 960 20 0 0
+ColorP 0 0 25 29 250 200 50 180 180 180
+ColorP 1 0 25 21 250 200 50 180 180 180
+FSlider 25 0 0 0 -16384 16384 1
+FSlider 25 1 16145 0 0 32768 1
+ComboBox 25 0 6 1
+ConfigDialog 0 675 179 295 175
+Module 3 26 820 360 0 0
+FSlider 26 0 -69971 1 -150902 75451 1
+FSlider 26 1 0 0 0 102940 1
+ConfigDialog 0 848 493 200 115
+Module 16 28 460 440 0 0
+ComboBox 28 0 0 1
+ConfigDialog 0 522 530 200 100
+Module 2 29 440 20 0 0
+ColorP 0 0 29 15 250 200 50 180 180 180
+ColorP 2 0 29 3 250 200 50 180 180 180
+FSlider 29 0 0 0 0 16384 1
+FSlider 29 1 8329 0 0 16384 1
+FSlider 29 2 32768 0 0 32768 1
+FSlider 29 3 16384 0 0 32768 1
+FSlider 29 4 17208 0 0 32768 1
+ConfigDialog 1 753 297 200 319
+Tab "Envelope"
+Tab "Filter"
+Frame "Envelope Attack Level" 0
+Frame "Envelope Attack Time" 0
+Frame "Envelope Release Level" 0
+Frame "Envelope Release Time" 0
+Frame "Envelope General Settings" 0
+Frame "Filter" 1
+Parameter "Cutoff" 3 1 -81920 81920 0
+Parameter "Resonance" 3 3 0 16384 0
+Parameter "Filter Envelope Amount" 3 2 0 163840 0
+Parameter "Input gain (dB) " 3 0 -983040 163840 0
+Parameter "Output gain (dB)" 3 5 -245760 245760 0
+Program 0 -35478
+Program 0 1290
+Program 0 56343
+Program 0 -65536
+Program 0 65610
+Program 1 -35478
+Program 1 1290
+Program 1 56343
+Program 1 -65536
+Program 1 65610
+Program 2 -35478
+Program 2 1290
+Program 2 56343
+Program 2 -65536
+Program 2 65610
+Program 3 -61162
+Program 3 12900
+Program 3 56343
+Program 3 -65536
+Program 3 65610
+Program 4 -61162
+Program 4 12900
+Program 4 56343
+Program 4 -65536
+Program 4 65610
+Program 5 -61162
+Program 5 12900
+Program 5 56343
+Program 5 -65536
+Program 5 65610
+Program 6 -81920
+Program 6 0
+Program 6 163840
+Program 6 163840
+Program 6 -81189
+PresetName "Preset 00"
+PresetName "Preset 01"
+PresetName "Preset 02"
+PresetName "Preset 03"
+PresetName "Preset 04"
+PresetName "Preset 05"
+PresetName "Preset 06"

@@ -1,0 +1,43 @@
+<?php 
+header('Content-Type: text/html; charset=latin-1');
+date_default_timezone_set('America/Los_Angeles');
+include __DIR__ . '/../dbcon.php';
+
+$Query = "
+select * from reviews
+where ID = ".(int)substr($_GET['ID'], 0, 8)
+;
+$review = $mysqli->query($Query);
+$review_R = $review->fetch_assoc();
+
+$Query = "
+select * from links
+where CompanyName like '%".$review_R['company']."%'"
+;
+$author = $mysqli->query($Query);
+
+?>
+
+<HTML>
+
+<HEAD>
+<TITLE>review of ROTHKAMM</TITLE>
+</HEAD>
+<BODY>
+
+<div id="Layer1"><!-- CONTENT -->
+<?php echo 
+"Album: <a href='album.php?".str_replace(' ','+',$review_R['album'])."'>"
+.$review_R['album']."</a><br>
+Author: ".$review_R['author']."<br>
+Publication: ".$review_R['company']."
+<a href=".$review_R['link'].">(source)</a> <br>
+Date: ".date_format(date_create($review_R['datetime']),'m/d/Y')."
+<br><br>"
+.preg_replace("/\r\n|\r/","<br>",$review_R['text'])
+."<br><br>
+[ Permalink: https://rothkamm.com/review.php?ID=".$review_R['ID']." ]"
+; ?>
+</div>
+</BODY>
+</HTML>
