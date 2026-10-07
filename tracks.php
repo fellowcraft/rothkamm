@@ -3,6 +3,7 @@
 header('Content-Type: text/html; charset=utf-8');
 date_default_timezone_set('America/Los_Angeles');
 include __DIR__ . '/../dbcon.php';
+include __DIR__ . '/../mp3sign.php';
 $rootpath = '/var/www/html/ROTHKAMM/';
 
 
@@ -107,9 +108,8 @@ for ($i=0; $i <= 99; $i++)
 $MP3file = $MP3s.sprintf("%04d",$row["ID"]).sprintf("%02d",$i).'.mp3';
   
 if(file_exists($MP3file))
-{ 
-$MP3name = 'https://mp3.rothkamm.com/'
-.sprintf("%04d",$row["ID"]).sprintf("%02d",$i).'.mp3'; 
+{
+$MP3name = mp3_signed_url(sprintf("%04d",$row["ID"]).sprintf("%02d",$i).'.mp3');
 }
 }
 
