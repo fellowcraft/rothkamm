@@ -1,4 +1,17 @@
 	RewriteEngine on
 
+	# Legacy ColdFusion URLs -> PHP (mirrors the live vhost server config)
 	RewriteRule "^(.*).cfm$" "$1.php"
 
+	# Block aggressive crawlers and AI scrapers that ignore robots.txt
+	RewriteCond %{HTTP_USER_AGENT} (MJ12bot|AhrefsBot|SemrushBot|DotBot|BLEXBot|GPTBot|ChatGPT-User|CCBot|ClaudeBot|anthropic-ai) [NC]
+	RewriteRule .* - [F,L]
+
+	# Deny access to hidden files and leftovers (editor swaps, logs,
+	# backups, ColdFusion components, config/crontab copies)
+	<FilesMatch "^\.|(swp|swo|swn|swm|log|bak|cfc|conf|crontab)$">
+		Require all denied
+	</FilesMatch>
+
+	# No directory listings
+	Options -Indexes

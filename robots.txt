@@ -30,3 +30,5 @@ Disallow: /
 
 User-agent: Google-Extended
 Disallow: /
+
+Sitemap: https://rothkamm.com/sitemap.xml
