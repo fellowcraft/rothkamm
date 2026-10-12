@@ -1,5 +1,8 @@
 	RewriteEngine on
 
+	# Retired duplicate page -> canonical album view (nalbum.php removed 2026-10-12)
+	RewriteRule ^nalbum\.php$ /album [R=301,L]
+
 	# Legacy ColdFusion URLs -> PHP (mirrors the live vhost server config)
 	RewriteRule "^(.*).cfm$" "$1.php"
 
