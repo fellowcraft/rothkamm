@@ -2,7 +2,7 @@
 
 date_default_timezone_set('America/Los_Angeles');
 include __DIR__ . '/../dbcon.php';
-$rootpath = '/var/www/html/ROTHKAMM/';
+$rootpath = __DIR__ . '/';
 
 $Query = "
 SELECT * FROM PART

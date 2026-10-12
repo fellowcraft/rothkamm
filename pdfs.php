@@ -3,9 +3,9 @@
 header('Content-Type: text/html; charset=latin-1');
 date_default_timezone_set('America/Los_Angeles');
 include __DIR__ . '/../dbcon.php';
-$rootpath = '/var/www/html/ROTHKAMM/';
+$rootpath = __DIR__ . '/';
 
-$fi    = new FilesystemIterator('/var/www/html/ROTHKAMM/pdf', FilesystemIterator::SKIP_DOTS);
+$fi    = new FilesystemIterator(__DIR__ . '/pdf', FilesystemIterator::SKIP_DOTS);
 $PDFno = intval( (iterator_count($fi)-2) /2 );
 ?>
 

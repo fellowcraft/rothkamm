@@ -6,10 +6,10 @@ else
 $homeweb = "http://rothkamm.com";
 // ----------------------------------------------------------------------------
 
-// $fi    = new FilesystemIterator('/var/www/html/MP3320', FilesystemIterator::SKIP_DOTS);
+// $fi    = new FilesystemIterator(__DIR__ . '/../MP3320', FilesystemIterator::SKIP_DOTS);
 // $MP3no = iterator_count($fi);
 
-$fi    = new FilesystemIterator('/var/www/html/ROTHKAMM/pdf', FilesystemIterator::SKIP_DOTS);
+$fi    = new FilesystemIterator(__DIR__ . '/pdf', FilesystemIterator::SKIP_DOTS);
 $PDFno = intval( (iterator_count($fi)-2) /2 );
 
 include __DIR__ . '/../dbcon.php';

@@ -5,8 +5,8 @@ header('Content-Type: text/html; charset=utf-8');
 date_default_timezone_set('America/Los_Angeles');
 include __DIR__ . '/../dbcon.php';
 include __DIR__ . '/../mp3sign.php';
-$rootpath = '/var/www/html/ROTHKAMM/';
-$MP3path = "/var/www/html/MP3320/";
+$rootpath = __DIR__ . '/';
+$MP3path = __DIR__ . '/../MP3320/';
 // ------------------------- dev/live -----------------------------------------
 if($_SERVER["HTTP_HOST"] == "127.0.0.1") 
 $MP3web = "http://127.0.0.1/MP3320/";
@@ -362,7 +362,7 @@ echo '<a href="'.newestMP3($row["ID"]).'">'
 
 <?php
 //-------------------------- CD -----------------------------------------------
-if( file_exists('/var/www/html/ROTHKAMM/pictures/CD/'.$album_R["Name"].'.jpg')) 
+if( file_exists(__DIR__ . '/pictures/CD/'.$album_R["Name"].'.jpg')) 
 { 
 echo '<IMG SRC="pictures/CD/'.$album_R["Name"].'.jpg" CLASS="pic" ALIGN="middle">';
 } 
@@ -375,7 +375,7 @@ echo '<IMG SRC="pictures/CD/'.$album_R["Name"].'.jpg" CLASS="pic" ALIGN="middle"
 
 
 <?php
-if( file_exists('/var/www/html/ROTHKAMM/linernotes/'.trim($general_R["Name"]).'.htm')) 
+if( file_exists(__DIR__ . '/linernotes/'.trim($general_R["Name"]).'.htm')) 
 { 
 echo '<TABLE WIDTH="75%" ALIGN="CENTER">
 <TR>

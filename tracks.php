@@ -4,7 +4,7 @@ header('Content-Type: text/html; charset=utf-8');
 date_default_timezone_set('America/Los_Angeles');
 include __DIR__ . '/../dbcon.php';
 include __DIR__ . '/../mp3sign.php';
-$rootpath = '/var/www/html/ROTHKAMM/';
+$rootpath = __DIR__ . '/';
 
 
 $Query = "
@@ -100,7 +100,7 @@ echo intval(($Q['SumTotal']/60)/60/24,0)  ." days "
 while($row = $tracks_Q->fetch_assoc()) 
 { 
 
-$MP3s = "/var/www/html/MP3320/";
+$MP3s = __DIR__ . '/../MP3320/';
 $MP3name = "";
 
 for ($i=0; $i <= 99; $i++)

@@ -3,8 +3,8 @@
 //testing
 date_default_timezone_set('America/Los_Angeles');
 include __DIR__ . '/../dbcon.php';
-$rootpath = '/var/www/html/ROTHKAMM/';
-$MP3path = "/var/www/html/MP3320/";
+$rootpath = __DIR__ . '/';
+$MP3path = __DIR__ . '/../MP3320/';
 // ------------------------- dev/live -----------------------------------------
 if($_SERVER["HTTP_HOST"] == "127.0.0.1") 
 $MP3web = "http://127.0.0.1/MP3320/";
@@ -214,9 +214,7 @@ echo "{	title:'["
 // "."
 // .$row['year'].sprintf('%02d',$row['month']).sprintf('%02d',$row['day']).
 "<br/><i>"
-.$minutes.
-":"
-.sprintf('%02d',$seconds).
+.($row['length'] >= 3600 ? sprintf("%02d:%02d:%02d", intval($row['length']/3600,0), intval($row['length']/60%60,0), intval($row['length']%60,0)) : $minutes.":".sprintf('%02d',$seconds)).
 "</i><br/>".$msg."<br>',  mp3:'"
 .$locMP3.
 "' } "
@@ -237,6 +235,17 @@ volume: "100",
 smoothPlayBar: false,
 keyEnabled: true
 });
+
+$.jPlayer.prototype._convertTime = (function(orig){
+return function(s) {
+if (typeof s !== "number" || !isFinite(s)) s = 0;
+if (s >= 3600) {
+var h = Math.floor(s/3600), m = Math.floor(s%3600/60), sec = Math.floor(s%60);
+return (h<10?"0":"")+h+":"+(m<10?"0":"")+m+":"+(sec<10?"0":"")+sec;
+}
+return orig.call(this, s);
+};
+})($.jPlayer.prototype._convertTime);
 
 $("#jplayer_inspector_1").jPlayerInspector({jPlayer:$("#jquery_jplayer_1")});
 
@@ -337,7 +346,7 @@ echo '<a href="'.newestMP3($row["ID"]).'">'
 
 <?php
 //-------------------------- CD -----------------------------------------------
-if( file_exists('/var/www/html/ROTHKAMM/pictures/CD/'.$album_R["Name"].'.jpg')) 
+if( file_exists(__DIR__ . '/pictures/CD/'.$album_R["Name"].'.jpg')) 
 { 
 echo '<IMG SRC="pictures/CD/'.$album_R["Name"].'.jpg" CLASS="pic" ALIGN="middle">';
 } 
@@ -350,7 +359,7 @@ echo '<IMG SRC="pictures/CD/'.$album_R["Name"].'.jpg" CLASS="pic" ALIGN="middle"
 
 
 <?php
-if( file_exists('/var/www/html/ROTHKAMM/linernotes/'.trim($general_R["Name"]).'.htm')) 
+if( file_exists(__DIR__ . '/linernotes/'.trim($general_R["Name"]).'.htm')) 
 { 
 echo '<TABLE WIDTH="75%" ALIGN="CENTER">
 <TR>
