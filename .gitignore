@@ -1,6 +1,9 @@
 # credentials (lives one dir above web root, never commit)
 dbcon.php
 **/dbcon.php
+mp3sign.php
+**/mp3sign.php
+**/gate.php
 # editor / OS junk
 *.swp
 *~
