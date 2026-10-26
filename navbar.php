@@ -268,7 +268,7 @@ valign="buttom"
 CLASS="style2">
 
 <!-- Begin MailChimp Signup Form -->
-<link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
+<link href="https://cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 #mc_embed_signup{
 background:#fff; 
@@ -279,7 +279,7 @@ font:10px Helvetica,Arial,sans-serif;
 	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
 </style>
 <div id="mc_embed_signup">
-<form action="//lfus.us11.list-manage.com/subscribe/post?u=50f5ee81acb6d99647f3b9269&amp;id=d6e8a8620e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<form action="https://lfus.us11.list-manage.com/subscribe/post?u=50f5ee81acb6d99647f3b9269&amp;id=d6e8a8620e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 <div class="mc-field-group">
 	<label for="mce-EMAIL">Enter your <b>Email</b> to receive <i>new</i> releases:
 </label>
