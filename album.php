@@ -280,6 +280,8 @@ $("#jplayer_inspector_1").jPlayerInspector({jPlayer:$("#jquery_jplayer_1")});
 $cover_folder ="pictures/albumcover/";
 $cover_image = str_replace(' ','-',$album_R["Artist"])."-".
                str_replace(' ','-',$album_R["Name"]).".jpg";
+$cover_path = $cover_folder.$cover_image;
+if (!file_exists(__DIR__.'/'.$cover_path)) { $cover_path = $cover_folder.'Frank-Rothkamm-Phase-Out.jpg'; }
 //$cover_image = str_replace(" ","-",$cover_image);
 $URLAlbum    = URLencode(trim($album_R["Name"]));
 ?>
@@ -289,7 +291,7 @@ $URLAlbum    = URLencode(trim($album_R["Name"]));
 <meta property="og:type" content="music.album">
 <meta property="og:site_name" content="ROTHKAMM">
 <meta property="og:description" content='<?php echo $album_R["Artist"]." (sound artist) ".$album_R["VisualArt"]." (visual artist)"; ?>'>
-<meta property="og:image" content="http://rothkamm.com/<?php echo $cover_folder.$cover_image; ?>">
+<meta property="og:image" content="http://rothkamm.com/<?php echo $cover_path; ?>">
 <meta property="og:url" content="<?php echo "http://rothkamm.com/album.php?".$URLAlbum; ?>">
 
 
@@ -297,7 +299,7 @@ $URLAlbum    = URLencode(trim($album_R["Name"]));
 <meta name="twitter:site" content="ROTHKAMM">
 <meta name="twitter:title" content='<?php echo $album_R["Name"]." (".$album_R["Composed"].")"; ?>'>
 <meta name="twitter:description" content='<?php echo $album_R["Artist"]." (sound artist) ".$album_R["VisualArt"]." (visual artist)"; ?>'>
-<meta name="twitter:image" content="http://rothkamm.com/<?php echo $cover_folder.$cover_image;?>">
+<meta name="twitter:image" content="http://rothkamm.com/<?php echo $cover_path;?>">
 
 </HEAD>
 
@@ -316,7 +318,7 @@ var ImageSize = 'HEIGHT="' + (window.innerHeight)
 var ImageSize  = 'WIDTH="' + window.innerWidth
 }
 
-document.write('<CENTER><IMG SRC="<?php echo $cover_folder.$cover_image ?>" BORDER=0 ' + ImageSize + '"></CENTER>' ) 
+document.write('<CENTER><IMG SRC="<?php echo $cover_path ?>" BORDER=0 ' + ImageSize + '"></CENTER>' ) 
 </script> 
 
 <DIV  align="center" CLASS="style2c" > 
@@ -617,7 +619,7 @@ echo $value."<br>";
 <TR>
 <TD ALIGN="RIGHT" VALIGN="TOP" nowrap CLASS="styleTiny"  >Release Date:</TD>
 <TD VALIGN="TOP"  ><?php
-echo date_format(date_create($album_R["Released"]),"m/d/Y"); 
+echo $album_R["Released"] ? date_format(date_create($album_R["Released"]),"m/d/Y") : "";
 ?></TD>
 </TR>
 
