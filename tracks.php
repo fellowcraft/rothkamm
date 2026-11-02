@@ -13,15 +13,26 @@ WHERE Status <> 0
 ";
 $all_Q = $mysqli->query($Query);
 
+$per_page = 50;
+$page = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
+
 if (isset($_GET['opus'])) {
 $Query = "
 select * from PART
 where ID =".substr($_GET['opus'],0,4);
 
 } else {
+$CountQuery = "
+select count(*) as Total from PART
+";
+$count_R = $mysqli->query($CountQuery)->fetch_assoc();
+$total_pages = max(1, intval(ceil($count_R['Total'] / $per_page)));
+if ($page > $total_pages) $page = $total_pages;
+$offset = ($page - 1) * $per_page;
 $Query = "
 select * from PART
 ORDER BY year DESC, month DESC, day DESC, No DESC, ID DESC
+LIMIT $offset, $per_page
 ";
 }
 //print($Query); 
@@ -85,6 +96,22 @@ echo intval(($Q['SumTotal']/60)/60/24,0)  ." days "
 .sprintf('%02d', $Q["SumTotal"]%60)." seconds"; 
 } ?></STRONG></TD>
 </TR>
+
+<?php if(!isset($_GET['opus'])) { ?>
+<TR>
+<TD
+COLSPAN="4"
+HEIGHT="16"
+VALIGN="middle"
+CLASS="style2b"
+ALIGN="CENTER"
+><?php
+if($page > 1) echo '<A HREF="tracks?page='.($page-1).'">&lt;&lt; prev</A> | ';
+echo 'Page '.$page.' of '.$total_pages;
+if($page < $total_pages) echo ' | <A HREF="tracks?page='.($page+1).'">next &gt;&gt;</A>';
+?></TD>
+</TR>
+<?php } ?>
 
 <TR>
 <TD VALIGN="top" BGCOLOR="FFFFFF"  CLASS="style2b" ALIGN="RIGHT">album</TD>
