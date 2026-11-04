@@ -58,7 +58,7 @@ $x += 1;
 if(($x-1) % 3 == 0) echo "<TR>";
 
 $URLArtist= URLencode($row["Artist"]);
-$URLAlbum = URLencode($row["Name"]);
+$URLAlbum = str_replace(' ', '-', trim($row["Name"]));
 //$URLAlbum = str_replace($URLAlbum,'%20','-');
 
 //$AlbumImage = "pictures/albumcover/small/".$URLArtist."-".$URLAlbum.".jpg"; 
@@ -71,7 +71,7 @@ $AlbumImage = "pictures/albumcover/small/".$Artist."-".$Name.".jpg";
 WIDTH="280"
 ALIGN='CENTER' 
 VALIGN='MIDDLE'
-><A HREF='album?
+><A HREF='/
 <?php 
 echo
 $URLAlbum.
@@ -105,11 +105,11 @@ if($key == 2) break;
 }
 // -----------------------------------------------------------------------------
 
-$URLAlbum = URLencode($row["Name"]);
+$URLAlbum = str_replace(' ', '-', trim($row["Name"]));
 
 echo 
 "<span CLASS='styleTiny'><br><A 
-HREF='album?".$URLAlbum. "'>"
+HREF='/".$URLAlbum. "'>"
 . strtoupper(trim(substr($row["Name"],0,18))) .
 //. $Short_Name .
 " <br>("

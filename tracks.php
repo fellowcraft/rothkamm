@@ -161,8 +161,8 @@ CLASS="style2fade"
 $array = explode(",",$row["album"]);
 foreach($array as $value)
 {
-$WebName = str_replace(" ","+",trim($value));
-echo "<A HREF='album?".$WebName."'>".$value.
+$WebName = str_replace(" ","-",trim($value));
+echo "<A HREF='/".$WebName."'>".$value.
 " <br />"; 
 } 
 }

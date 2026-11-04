@@ -33,7 +33,7 @@ LIMIT 1
 $general_Q = $mysqli->query($Query);
 $general_R = $general_Q->fetch_assoc();
 
-if(mysqli_num_rows($general_Q) < 1) exit("*** No general_R ***");
+if(mysqli_num_rows($general_Q) < 1) { http_response_code(404); exit("*** No general_R ***"); }
 
 
 $Query = "
@@ -44,7 +44,7 @@ where Name like '".$general_R['Name']."'
 $album_Q =  $mysqli->query($Query);
 $album_R = $album_Q->fetch_assoc();
 
-if(mysqli_num_rows($album_Q) < 1) exit("*** No album_R ***");
+if(mysqli_num_rows($album_Q) < 1) { http_response_code(404); exit("*** No album_R ***"); }
 
 
 if($album_R['RndOrder'] > 0) $Att = "rand()"; else  $Att = "No";
@@ -59,7 +59,7 @@ Here, $tracks_Q->fetch_assoc() is used again in while() statments.
 Each call to this method advances the record pointer by 1, therefore:
 mysqli_data_seek($tracks_Q,0) has to reset the pointer.
 */
-if(mysqli_num_rows($tracks_Q) < 1) exit("*** No tracks_R ***");
+if(mysqli_num_rows($tracks_Q) < 1) { http_response_code(404); exit("*** No tracks_R ***"); }
 
 
 $Query = "
