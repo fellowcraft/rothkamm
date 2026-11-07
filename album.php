@@ -440,7 +440,7 @@ echo file_get_contents('linernotes/'.trim($general_R["AlbumID"]).'.htm');
 
 <?php 
 $AlbumIcon = 'pictures/albumcover/small/'
-.trim($album_R["Artist"]).'-'.trim($album_R["Name"]).'.jpg';
+.str_replace(' ','-',trim($album_R["Artist"])).'-'.str_replace(' ','-',trim($album_R["Name"])).'.jpg';
 ?>
 
 
