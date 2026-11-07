@@ -20,3 +20,8 @@ Thumbs.db
 *.[jJ][pP][gG]
 *.[jJ][pP][eE][gG]
 *.[pP][dD][fF]
+# audio masters and projects — too big / not for the site repo
+*.[wW][aA][vV]
+*.[fF][lL][aA][cC]
+*.[aA][iI][fF]
+*.[aA][iI][fF][fF]
