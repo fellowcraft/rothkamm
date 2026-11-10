@@ -27,7 +27,7 @@ $author = $mysqli->query($Query);
 
 <div id="Layer1"><!-- CONTENT -->
 <?php echo 
-"Album: <a href='album.php?".str_replace(' ','+',$review_R['album'])."'>"
+"Album: <a href='/".str_replace(' ','-',trim($review_R['album']))."'>"
 .$review_R['album']."</a><br>
 Author: ".$review_R['author']."<br>
 Publication: ".$review_R['company']."

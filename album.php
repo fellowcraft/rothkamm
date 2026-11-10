@@ -13,17 +13,12 @@ $MP3web = "http://127.0.0.1:8080/MP3320/";
 else 
 $MP3web = "https://mp3.rothkamm.com/";
 // ----------------------------------------------------------------------------
-$RewriteQueryString = substr(URLdecode($_SERVER['QUERY_STRING']), 0, 500);
+$RawQuery = substr($_SERVER['QUERY_STRING'], 0, 500);
+$Segs = explode('&', $RawQuery);
+$RewriteQueryString = URLdecode($Segs[0]);
 $RewriteQueryString = str_replace("+"," ",$RewriteQueryString);
-$OldQueryString = str_replace("-"," ",$RewriteQueryString);
-$NewQueryString = strstr($RewriteQueryString,'&f', true);
-if($NewQueryString === false)
-{
-$RewriteQueryString = $OldQueryString;
-} else 
-{
-$RewriteQueryString = $NewQueryString;
-}
+$RewriteQueryString = str_replace("-"," ",$RewriteQueryString);
+$RewriteQueryString = $mysqli->real_escape_string($RewriteQueryString);
 // --------------------------- Database ---------------------------------------
 $Query = "
 select * from Album

@@ -19,7 +19,7 @@ $page = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
 if (isset($_GET['opus'])) {
 $Query = "
 select * from PART
-where ID =".substr($_GET['opus'],0,4);
+where ID =".intval(substr($_GET['opus'],0,4));
 
 } else {
 $CountQuery = "
