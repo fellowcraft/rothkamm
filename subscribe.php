@@ -48,7 +48,7 @@ if (isset($http_response_header[0]) && preg_match('/\s(\d{3})\s/', $http_respons
 <?php } else { ?>
 <STRONG>Something went wrong (<?php echo intval($code); ?>). Please try again later.</STRONG>
 <?php } ?>
-<BR><BR><A HREF="index">back to rothkamm.com</A>
+<BR><BR><A HREF="index.php">back to rothkamm.com</A>
 </DIV>
 <?php include("navbar.php"); ?>
 </BODY>
