@@ -48,7 +48,16 @@ if (isset($http_response_header[0]) && preg_match('/\s(\d{3})\s/', $http_respons
 <?php } else { ?>
 <STRONG>Something went wrong (<?php echo intval($code); ?>). Please try again later.</STRONG>
 <?php } ?>
-<BR><BR><A HREF="index.php">back to rothkamm.com</A>
+<?php
+$back = 'index.php';
+if (!empty($_SERVER['HTTP_REFERER'])) {
+    $ref = parse_url($_SERVER['HTTP_REFERER']);
+    if (!empty($ref['host']) && preg_match('/(^|\.)rothkamm\.com$/', $ref['host'])) {
+        $back = $ref['path'] . (!empty($ref['query']) ? '?' . $ref['query'] : '');
+    }
+}
+?>
+<BR><BR><A HREF="<?php echo htmlspecialchars($back, ENT_QUOTES, 'UTF-8'); ?>">back to rothkamm.com</A>
 </DIV>
 <?php include("navbar.php"); ?>
 </BODY>
