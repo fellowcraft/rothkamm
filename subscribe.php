@@ -43,7 +43,7 @@ if (isset($http_response_header[0]) && preg_match('/\s(\d{3})\s/', $http_respons
 </HEAD>
 <BODY>
 <DIV ALIGN="center" CLASS="style2c"><BR><BR>
-<?php if ($code === 200) { ?>
+<?php if ($code === 200 || $code === 201) { ?>
 <STRONG>Thank you — you are on the list.</STRONG>
 <?php } else { ?>
 <STRONG>Something went wrong (<?php echo intval($code); ?>). Please try again later.</STRONG>
