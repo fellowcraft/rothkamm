@@ -1,6 +1,6 @@
 <?php
 
-if(strlen($_SERVER["QUERY_STRING"]) > 2)
+if(strlen($_SERVER["QUERY_STRING"]) > 2 && strpos($_SERVER["QUERY_STRING"], '=') === false)
 {
 header("Location: https://rothkamm.com/album?".$_SERVER["QUERY_STRING"]);
 exit();
